@@ -3,9 +3,13 @@ import HomePage from "./components/homePage";
 import { prisma } from "@/app/libs/prisma";
 
 
-async function loadProducts(){
-    const allProducts = await prisma.product.findMany();
-    return allProducts;
+async function loadProducts() {
+  try {
+    return await prisma.product.findMany();
+  } catch (error) {
+    console.error("Error loading products:", error);
+    return []; // Devuelve un array vacío como fallback
+  }
 }
 
 
