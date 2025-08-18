@@ -7,6 +7,7 @@ import CirculoCategoria from "./circuloCategoria";
 // import noimage from "@/app/images/noimage.webp"; //importamos la imagen por defecto
 import SliderPrioridad from "./sliderPrioridad";
 import Pie from "./pie";
+import Banner from "./banner";
 
 export default function HomePage(props) {
   const items = props.items; //aqui van los items que se pasan al slider, por ahora un array vacio
@@ -20,6 +21,7 @@ export default function HomePage(props) {
     <div>
       <Navbar display={displayCart} setDisplay={setDisplayCart}/>
       <div className="grid h-[100px]"></div> {/* Espacio para el navbar */}
+      <Banner/>
       <div className="w-[900px] min-[1100px]:w-[1100px] min-[1400px]:w-[1400px] mx-auto">
         <div className="text-center text-3xl font-extrabold p-4">Categorías</div>
         <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-12 p-4">
@@ -28,12 +30,12 @@ export default function HomePage(props) {
             <div className="text-xl font-semibold">Maltas</div>
           </div>
           <div className="grid grid-flow-row place-content-start place-items-center h-[200px] min-[1100px]:h-[250px]">
-            <div><CirculoCategoria img={"https://res.cloudinary.com/drh0qrube/image/upload/v1754773578/l%C3%BApulo_small_dbesem.png"}/></div>
-            <div className="text-xl font-semibold">Lúpulos</div>
+            <div><CirculoCategoria img={"https://res.cloudinary.com/drh0qrube/image/upload/v1754773080/levadura_05_small_dusqp1.png"}/></div>
+            <div className="text-xl font-semibold">Levaduras</div>
           </div>
           <div className="grid grid-flow-row place-content-start place-items-center h-[200px] min-[1100px]:h-[250px]">
-            <div><CirculoCategoria img={"https://res.cloudinary.com/drh0qrube/image/upload/v1754773080/levadura_voss_mntsin.png"}/></div>
-            <div className="text-xl font-semibold">Levaduras</div>
+            <div><CirculoCategoria img={"https://res.cloudinary.com/drh0qrube/image/upload/v1754773578/l%C3%BApulo_small_dbesem.png"}/></div>
+            <div className="text-xl font-semibold">Lúpulos</div>
           </div>
           <div className="grid grid-flow-row place-content-start place-items-center h-[200px] min-[1100px]:h-[250px]">
             <div><CirculoCategoria img={"https://res.cloudinary.com/drh0qrube/image/upload/v1754773578/kits_small_iy1yxj.png"}/></div>
@@ -60,16 +62,21 @@ export default function HomePage(props) {
             <div className="text-center text-3xl font-extrabold p-4">Levadura</div>
             <Slider items={levaduraProducts}/>
           </div>
-          <div className="grid grid-flow-row place-content-center place-items-center">
-            <div className="text-center text-3xl font-extrabold p-4">Lúpulo</div>
-            <Slider items={lupuloProducts}/>
-          </div>
+
         </div>
       </div>
       <Pie/>
-      <Cart className active={displayCart}/>
+      <Cart className active={displayCart} setActive={setDisplayCart}/>
       
       
     </div>
   )    
 }
+
+//lupulos:
+/*
+          <div className="grid grid-flow-row place-content-center place-items-center">
+            <div className="text-center text-3xl font-extrabold p-4">Lúpulo</div>
+            <Slider items={lupuloProducts}/>
+          </div>
+*/
