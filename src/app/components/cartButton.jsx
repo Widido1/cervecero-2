@@ -1,5 +1,5 @@
 import Image from "next/image";
-import carritoweb from "@/app/images/carritoweb.webp";
+import carritoweb from "@/app/images/carritoweb.webp"
 
 export default function CartButton(props){
     const { cart } = props; //desestructuracion del carrito
@@ -11,7 +11,7 @@ export default function CartButton(props){
         <div className="relative flex items-center justify-center">
             <Image
                 src={carritoweb}
-                alt="Cart"
+                alt="cart"
                 width={70}
                 height={70}
                 className="Bigger text-[var(--color2)] z-10"

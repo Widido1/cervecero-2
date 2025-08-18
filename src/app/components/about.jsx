@@ -4,6 +4,12 @@ import Navbar from "./navbar";
 import { useState } from "react";
 import noimage from "@/app/images/noimage.webp"; //importamos la imagen por defecto
 import Pie from "./pie";
+import about01 from "@/app/images/about01.webp"
+import Cart from "./cart";
+import imgvision from "@/app/images/imgvision.webp";
+import imgvalores1 from "@/app/images/imgvalores1.webp";
+import imgvalores2 from "@/app/images/imgvalores2.webp";
+
 
 
 
@@ -22,7 +28,7 @@ export default function About(props) {
             <div className="grid grid-flow-col grid-cols-2 pt-16 gap-16">
                 <div>
                     <Image
-                        src={noimage}
+                        src={about01}
                         alt="no image"
                         width={600}
                         height={600}
@@ -53,7 +59,7 @@ export default function About(props) {
             </div>
             <div>
                 <Image
-                    src={noimage}
+                    src={imgvision}
                     alt="no image"
                     width={1200}
                     height={1200}
@@ -72,7 +78,7 @@ export default function About(props) {
                 <div className="grid grid-flow-row gap-8">
                     <div>
                         <Image
-                            src={noimage}
+                            src={imgvalores1}
                             alt="no image"
                             width={600}
                             height={600}
@@ -81,7 +87,7 @@ export default function About(props) {
                     </div>
                     <div>
                         <Image
-                            src={noimage}
+                            src={imgvalores2}
                             alt="no image"
                             width={600}
                             height={600}
@@ -120,6 +126,7 @@ export default function About(props) {
                 </div>
             </div>
         </div>
+        <Cart className active={displayCart} setActive={setDisplayCart}/>
         <Pie/>
 
     </div>

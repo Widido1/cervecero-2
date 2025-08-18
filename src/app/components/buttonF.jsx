@@ -6,7 +6,7 @@ export default function ButtonF(props){
     const value = props.value; //valor del boton //variable que va a contener el render del boton
     const set = props.set; //set del boton //funcion que va a cambiar el valor del boton
     const global = props.global; //valor global del boton
-    const [visual, setVisual] = useState("theme1 TextShine3 Bigger text-base min-[1400px]:text-lg min-[1700px]:text-xl"); //estado visual del boton
+    const [visual, setVisual] = useState("theme1 TextShine3 text-base min-[1400px]:text-lg min-[1700px]:text-xl"); //estado visual del boton
     const head = props.head; //si es un boton principal o secundario
     const resetSearch = props.setSearch; //funcion para resetear la busqueda
 
@@ -25,7 +25,7 @@ export default function ButtonF(props){
                 set("default");
             }else{
             set("default");
-            setVisual("theme1 TextShine3 Bigger text-base min-[1400px]:text-lg min-[1700px]:text-xl");
+            setVisual("theme1 TextShine3 text-base min-[1400px]:text-lg min-[1700px]:text-xl");
             }
         }
     }, [status]) //cuando el estado cambia, se cambia el valor del boton

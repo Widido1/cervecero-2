@@ -19,11 +19,10 @@ export default function SearchResults(props){
     const [displayCart, setDisplayCart] = useState(false); //estado del carrito, si esta abierto o cerrado
     const [results, setResults] = useState([...allProducts]); //resultados de la busqueda
     const [cantidadR, setCantidadR] = useState("default"); //cantidad de resultados
+    
     //Filtros de busqueda
     const [orden, setOrden] = useState("Relevancia"); //orden de los productos
-    const [precioCerveza, setPrecioCerveza] = useState("default"); //precio de los productos
     const [cervezaTipo, setCervezaTipo] = useState("default"); //Tipo de cerveza
-    const [cervezaCapacidad, setCervezaCapacidad] = useState("default"); //capacidad de la cerveza
     const [ingredienteTipo, setIngredienteTipo] = useState("default"); //tipo de ingrediente
     const [tipoElemento, setTipoElemento] = useState("default"); //tipo de elemento
     const [producto, setProducto] = useState("default"); //libros y revistas
@@ -74,22 +73,22 @@ export default function SearchResults(props){
     // Apply other filters
     if (producto !== "default") filtered = filtered.filter(x => x.productType === producto);
     if (cervezaTipo !== "default") filtered = filtered.filter(x => x.productType === "Cerveza" && x.type === cervezaTipo);
-    if (cervezaCapacidad !== "default") filtered = filtered.filter(x => x.productType === "Cerveza" && x.quantity === cervezaCapacidad);
-    if (precioCerveza !== "default" ) {
-        switch (precioCerveza) {
-            case "-4000":
-                filtered = filtered.filter(x => x.price < 4000 && x.productType === "Cerveza");
-                break;
-            case "4000-7000":
-                filtered = filtered.filter(x => x.price >= 4000 && x.price <= 7000 && x.productType === "Cerveza");
-                break;
-            case "+7000":
-                filtered = filtered.filter(x => x.price > 7000 && x.productType === "Cerveza");
-                break;
-            default:
-                break;
-        }
-    }
+    //if (cervezaCapacidad !== "default") filtered = filtered.filter(x => x.productType === "Cerveza" && x.quantity === cervezaCapacidad);
+    //if (precioCerveza !== "default" ) {
+    //    switch (precioCerveza) {
+    //       case "-4000":
+    //           filtered = filtered.filter(x => x.price < 4000 && x.productType === "Cerveza");
+    //           break;
+    //       case "4000-7000":
+    //           filtered = filtered.filter(x => x.price >= 4000 && x.price <= 7000 && x.productType === "Cerveza");
+    //            break;
+    //        case "+7000":
+    //            filtered = filtered.filter(x => x.price > 7000 && x.productType === "Cerveza");
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //}
     if (ingredienteTipo !== "default") { filtered = filtered.filter(x => x.type === ingredienteTipo)};
     if (tipoElemento !== "default") { filtered = filtered.filter(x => x.type === tipoElemento)};
 
@@ -108,13 +107,13 @@ export default function SearchResults(props){
     setResults(filtered);
     setCantidadR(filtered.length); // Update count
 
-    }, [newSearchW, producto, cervezaTipo, cervezaCapacidad, precioCerveza, ingredienteTipo, tipoElemento, orden, allProducts]);
+    }, [newSearchW, producto, cervezaTipo, ingredienteTipo, tipoElemento, orden, allProducts]);
 
  //cuando se cambia el valor de results, se ejecuta el useEffect
 
     return(
         <div>
-            <div className="w-full theme2 fixed top-0 z-50">
+            <div className="w-full theme2 fixed top-0 z-25">
                 <div className="grid grid-flow-col min-[1000px]:grid-cols-3 place-self-start min-[1000px]:place-content-center  text-center place-items-start min-[1000px]:place-items-center h-[100px] px-2 font-bold text-4xl w-[500px] min-[650px]:w-[650px] min-[800px]:w-[800px] min-[1000px]:w-[1100px] min-[1400px]:w-[1400px] mx-auto gap-4 pt-4 min-[1000px]:pt-1">
                     {/* Otro Navbar, este necesita un buscador diferente <Link href="/talleres/"><h1 className="TextShine Bigger">Talleres</h1></Link> para que no se recarge la pagina al buscar en la misma */}
                     <div>
@@ -141,9 +140,6 @@ export default function SearchResults(props){
                     </div>           
                 </div>
             </div>
-
-            
-
 
             <div className="grid grid-flow-col pt-[100px]">
                 {/* Barra de filtros / listado de productos / carrito (cuando se activa) */}
@@ -202,7 +198,7 @@ export default function SearchResults(props){
                         </div>
                     </div>  
                 </div>
-                <Cart className active={displayCart}/>
+                <Cart active={displayCart} setActive={setDisplayCart}/>
             </div>
             <Pie/>
         </div>

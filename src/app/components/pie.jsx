@@ -5,7 +5,7 @@ import ig_icon from "@/app/images/ig_icon.png";
 
 export default function Pie(props) {
   return (
-    <div className="theme2 w-full h-[300px]">
+    <div className="theme2 w-full h-[300px] mt-4">
         <div className="grid grid-flow-col grid-rows-2 min-[950px]:grid-cols-4 min-[950px]:grid-rows-1 place-self-center place-items-start gap-4 min-[950px]:gap-8 pt-16 w-[85%] min-[1300px]:w-[70%]">
             <div className="grid grid-flow-col min-[950px]:grid-flow-row place-self-start place-content-center place-items-start gap-4">
                 <div>

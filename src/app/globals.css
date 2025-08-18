@@ -19,9 +19,8 @@
   --color2b: #facd79;
   --color3: #073a18;
   --color4: #771200;
-  --color5: #635b4d;
-  --color6: #fffaf0;
-  --color6b:#6b6b6b;
+  --color5: #fffaf0;
+  --color5b:#6b6b6b;
 
   --height: calc(100vh - 100px);
 
@@ -43,12 +42,12 @@ body {
   transition-duration: 0.5s;
 }
 .theme3{
-  color: var(--color6);
+  color: var(--color5);
   background-color: var(--color1);
-  transition-duration: 0.5s;
+  transition-duration: 0.1s;
 }
 .theme3b{
-  color: var(--color6);
+  color: var(--color5);
   background-color: var(--color1b);
   transition-duration: 0.5s;
 }
@@ -58,18 +57,18 @@ body {
   transition-duration: 0.5s;
 }
 .theme5{
-  color: var(--color2);
+  color: var(--color1);
   background-color: var(--color5);
-  transition-duration: 0.5s;
+  transition-duration: 0.1s;
 }
 .theme6{
-  color: var(--color6b);
-  background-color: var(--color6);
+  color: var(--color5b);
+  background-color: var(--color5);
   transition-duration: 0.5s;
 }
 .themeCard{
   color: var(--color1);
-  background-color: var(--color6);
+  background-color: var(--color5);
   transition-duration: 0.5s;
 }
 .mezclar{
@@ -110,8 +109,8 @@ body {
   transition-duration: 0.2s;
 }
 .TextShine3:hover{
-  color: var(--color6);
-  text-shadow: 0 0 1px var(--color6), 0 0 2px var(--color6);
+  color: var(--color-black);
+  text-shadow: 0 0 1px var(--color-black), 0 0 2px var(--color-black);
   transition-duration: 0.2s;
 }
 
@@ -120,4 +119,16 @@ body {
   color: var(--color1);
   transition-duration: 0.3s;
   border-radius: 10px;
+}
+.CBShine:hover{
+  border: 2px solid var(--color1);
+  box-shadow: 0 0 5px var(--color1), 0 0 10px var(--color1);
+  background-color: var(--color2);
+  transition-duration: 0.1s
+}
+.textcolor:hover{
+  color:var(--color2);
+}
+.hoverborder:hover{
+  border: 2px solid var(--color1);
 }
