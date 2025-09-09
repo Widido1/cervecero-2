@@ -33,7 +33,6 @@ export default function Cart(props){
                 grid 
                 grid-flow-row
                 grid-flow-rows-[auto_1fr_auto]
-                overflow-hidden
             `);
         }else{
             setStyle("hidden");

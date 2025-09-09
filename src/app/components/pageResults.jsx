@@ -41,14 +41,29 @@ export default function PageResults(props){
     */
  
     return(
-        <div className="grid grid-flow-row">
-            <div className="grid grid-flow-row grid-cols-2 min-[950px]:grid-cols-4 grid-rows-2 gap-4">
-                {currentItems.map((item) => (
-                    <div key={item.id}><ProductCard id={item.id} name={item.name} img={item.imageUrl} des={item.description} price={item.price}/></div>
-                ))}
+         <div className="flex flex-col max-[1100px]:h-[700px]">
+            {/* Contenedor de productos con scroll controlado */}
+            <div className="flex-1 overflow-y-auto p-4">
+                <div className="grid grid-cols-1 gap-4 justify-center justify-items-center justify-self-center min-[650px]:grid-cols-2 min-[1100px]:grid-cols-4">
+                    {currentItems.map((item) => (
+                        <div key={item.id} className="w-full">
+                            <ProductCard 
+                                id={item.id} 
+                                name={item.name} 
+                                img={item.imageUrl} 
+                                des={item.description} 
+                                price={item.price}
+                            />
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div className="grid grid-flow-col place-content-center gap-4">
-                <PaginatorSlider items={pages} page={currentPage} setPage={setCurrentPage} />
+            
+            {/* Paginador fijo */}
+            <div className="flex-shrink-0 bg-white py-4 border-t">
+                <div className="flex justify-center">
+                    <PaginatorSlider items={pages} page={currentPage} setPage={setCurrentPage} />
+                </div>
             </div>
         </div>
     )
@@ -59,3 +74,18 @@ export default function PageResults(props){
 //si el paginador está en el último slot, el botón siguiente, el ... y la última pagina no se muestran
 //si mas de 5, se muestra ... y la primera pagina
 //si el paginador esta en x < lastpage - 5, se muestra el ... y la última pagina.
+
+
+
+/*
+        <div className="grid grid-flow-row">
+            <div className="grid grid-flow-row place-items-center grid-cols-1 overflow-x-scroll min-[650px]:grid-cols-2 min-[1100px]:grid-cols-4 grid-rows-2 gap-4 overflow-y-scroll  max-[650px]:max-h-[700px]">
+                {currentItems.map((item) => (
+                    <div key={item.id}><ProductCard id={item.id} name={item.name} img={item.imageUrl} des={item.description} price={item.price}/></div>
+                ))}
+            </div>
+            <div className="grid grid-flow-col place-content-center gap-4">
+                <PaginatorSlider items={pages} page={currentPage} setPage={setCurrentPage} />
+            </div>
+        </div>
+*/

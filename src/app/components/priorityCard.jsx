@@ -21,8 +21,8 @@ export default function PriorityCard(props){
                         className="rounded-full h-[75px] w-[75px]"
                     />
                     <div className="grid grid-flow-row place-items-start place-content-start text-left ">
-                        <div className="text-sm min-[1400px]:text-base font-semibold">{product.name}</div>
-                        <div className="text-xs min-[1400px]:text-sm">{product.description}</div>
+                        <div className="text-xs min-[920px]:text-sm min-[1400px]:text-base font-semibold">{product.name}</div>
+                        <div className="text-[11px] min-[920px]:text-xs min-[1400px]:text-sm">{product.description}</div>
                     </div>
                 </div>
             </button>

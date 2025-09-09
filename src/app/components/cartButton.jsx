@@ -12,12 +12,12 @@ export default function CartButton(props){
             <Image
                 src={carritoweb}
                 alt="cart"
-                width={70}
-                height={70}
-                className="Bigger text-[var(--color2)] z-10"
+                width={55}
+                height={55}
+                className="Bigger text-[var(--color2)] z-10 top-0"
                 onClick={() => setDisplay(!display)} //funcion que se ejecuta al hacer click en el carrito
             />
-            <span className="absolute top-0 theme3 rounded-full px-2 py-1 text-sm font-bold">
+            <span className="absolute top-[-5] theme3 rounded-full px-2 py-1 text-sm font-bold">
                 {totalItems}
             </span>
 

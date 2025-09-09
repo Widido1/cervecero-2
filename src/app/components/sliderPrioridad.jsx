@@ -13,7 +13,7 @@ export default function SliderPrioridad(props) {
 
   return (
     <div className="grid place-self-center place-content-center place-items-center">
-        <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-4 px-8 py-4 w-[80%]">
+        <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-4 px-8 py-4 w-[70%]">
             <div className="grid grid-flow-row place-self-center place-content-end place-items-stretch">
                 <Image
                     src={grande}

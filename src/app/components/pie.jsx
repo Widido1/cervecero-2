@@ -5,8 +5,8 @@ import ig_icon from "@/app/images/ig_icon.png";
 
 export default function Pie(props) {
   return (
-    <div className="theme2 w-full h-[300px] mt-4">
-        <div className="grid grid-flow-col grid-rows-2 min-[950px]:grid-cols-4 min-[950px]:grid-rows-1 place-self-center place-items-start gap-4 min-[950px]:gap-8 pt-16 w-[85%] min-[1300px]:w-[70%]">
+    <div className="grid theme2 w-full h-[300px] mt-4">
+        <div className="grid grid-flow-col place-content-center grid-rows-2 min-[950px]:grid-cols-4 min-[950px]:grid-rows-1 place-self-center place-items-start gap-4 min-[950px]:gap-8 pt-12 pb-8 w-[85%] min-[1300px]:w-[70%]">
             <div className="grid grid-flow-col min-[950px]:grid-flow-row place-self-start place-content-center place-items-start gap-4">
                 <div>
                     <Image
@@ -55,6 +55,9 @@ export default function Pie(props) {
               <div className="text-lg min-[950px]:text-xl font-semibold">Ayuda</div>
               <div className="text-xs grid grid-flow-row gap-2">Preguntas frecuentes</div>
             </div>
+        </div>
+        <div className="grid place-content-center w-full theme4 p-4">
+          <div>© 2025 Luengo Cervezas S.A.S. Todos los derechos reservados</div>
         </div>
     </div>
   )    
