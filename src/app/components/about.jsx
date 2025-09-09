@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Navbar from "./navbar";
 import { useState } from "react";
-import noimage from "@/app/images/noimage.webp"; //importamos la imagen por defecto
 import Pie from "./pie";
 import about01 from "@/app/images/about01.webp"
 import Cart from "./cart";

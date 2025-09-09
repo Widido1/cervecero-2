@@ -38,36 +38,36 @@ export default function PaginatorSlider(props){
 
 
     return(
-        <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-4 mt-4">
-            <button className="theme2 Bigger rounded-md text-3xl w-[50px] h-[50px]" onClick={FirstF}>{"|<"}</button>
-            <button className="theme2 Bigger rounded-md text-3xl w-[50px] h-[50px]" onClick={PrevF}>{"<"}</button>
+        <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-2 min-[1100px]:gap-4 mt-4">
+            <button className="theme2 Bigger rounded-md text-sm min-[650px]:text-2xl min-[1100px]:text-3xl w-[30px] min-[650px]:w-[40px] min-[1100px]:w-[50px] h-[30px] min-[650px]:h-[40px] min-[1100px]:h-[50px]" onClick={FirstF}>{"|<"}</button>
+            <button className="theme2 Bigger rounded-md text-sm min-[650px]:text-2xl min-[1100px]:text-3xl w-[30px] min-[650px]:w-[40px] min-[1100px]:w-[50px] h-[30px] min-[650px]:h-[40px] min-[1100px]:h-[50px]" onClick={PrevF}>{"<"}</button>
                 <div>
                     <button onClick={() => setPage(cArray[mI])} className={
-                        page === cArray[mI] ? "rounded-md theme2 BoxShine2 Bigger w-[40px] h-[40px] text-2xl" : "rounded-md theme1 BoxShine2 Bigger w-[40px] h-[40px] text-2xl"
+                        page === cArray[mI] ? "rounded-md theme2 BoxShine2 Bigger w-[25px] min-[650px]:w-[30px] min-[1100px]:w-[40px] h-[25px] min-[650px]:h-[30px] min-[1100px]:h-[40px] text-sm min-[650px]:text-xl min-[1100px]:text-2xl" : "rounded-md theme1 BoxShine2 Bigger w-[25px] min-[650px]:w-[30px] min-[1100px]:w-[40px] h-[25px] min-[650px]:h-[30px] min-[1100px]:h-[40px] text-sm min-[650px]:text-xl min-[1100px]:text-2xl"
                     }>{cArray[mI]}</button>
                 </div>
                 <div>
                     <button onClick={() => setPage(cArray[mI+1])} className={
-                        page === cArray[mI+1] ? "rounded-md theme2 BoxShine2 Bigger w-[40px] h-[40px] text-2xl" : "rounded-md theme1 BoxShine2 Bigger w-[40px] h-[40px] text-2xl"
+                        page === cArray[mI+1] ? "rounded-md theme2 BoxShine2 Bigger w-[25px] min-[650px]::w-[30px] min-[1100px]:w-[40px] h-[25px] min-[650px]:h-[30px] min-[1100px]:h-[40px] text-sm min-[650px]:text-xl min-[1100px]:text-2xl" : "rounded-md theme1 BoxShine2 Bigger w-[25px] min-[650px]:w-[30px] min-[1100px]:w-[40px] h-[25px] min-[650px]:h-[30px] min-[1100px]:h-[40px] text-sm min-[650px]:text-xl min-[1100px]:text-2xl"
                     }>{cArray[mI+1]}</button>
                 </div>
                 <div>
                     <button onClick={() => setPage(cArray[mI+2])} className={
-                        page === cArray[mI+2] ? "rounded-md theme2 BoxShine2 Bigger w-[40px] h-[40px] text-2xl" : "rounded-md theme1 BoxShine2 Bigger w-[40px] h-[40px] text-2xl"
+                        page === cArray[mI+2] ? "rounded-md theme2 BoxShine2 Bigger w-[25px] min-[650px]::w-[30px] min-[1100px]:w-[40px] h-[25px] min-[650px]:h-[30px] min-[1100px]:h-[40px] text-sm min-[650px]:text-xl min-[1100px]:text-2xl" : "rounded-md theme1 BoxShine2 Bigger w-[25px] min-[650px]:w-[30px] min-[1100px]:w-[40px] h-[25px] min-[650px]:h-[30px] min-[1100px]:h-[40px] text-sm min-[650px]:text-xl min-[1100px]:text-2xl"
                     }>{cArray[mI+2]}</button>
                 </div>
                 <div>
                     <button onClick={() => setPage(cArray[mI+3])} className={
-                        page === cArray[mI+3] ? "rounded-md theme2 BoxShine2 Bigger w-[40px] h-[40px] text-2xl" : "rounded-md theme1 BoxShine2 Bigger w-[40px] h-[40px] text-2xl"
+                        page === cArray[mI+3] ? "rounded-md theme2 BoxShine2 Bigger w-[25px] min-[650px]:w-[30px] min-[1100px]:w-[40px] h-[25px] min-[650px]:h-[30px] min-[1100px]:h-[40px] text-sm min-[650px]:text-xl min-[1100px]:text-2xl" : "rounded-md theme1 BoxShine2 Bigger w-[25px] min-[650px]:w-[30px] min-[1100px]:w-[40px] h-[25px] min-[650px]:h-[30px] min-[1100px]:h-[40px] text-sm min-[650px]:text-xl min-[1100px]:text-2xl"
                     }>{cArray[mI+3]}</button>
                 </div>
                 <div>
                     <button onClick={() => setPage(cArray[mI+4])} className={
-                        page === cArray[mI+4] ? "rounded-md theme2 BoxShine2 Bigger w-[40px] h-[40px] text-2xl" : "rounded-md theme1 BoxShine2 Bigger w-[40px] h-[40px] text-2xl"
+                        page === cArray[mI+4] ? "rounded-md theme2 BoxShine2 Bigger w-[25px] min-[650px]:w-[30px] min-[1100px]:w-[40px] h-[25px] min-[650px]:h-[30px] min-[1100px]:h-[40px] text-sm min-[650px]:text-xl min-[1100px]:text-2xl" : "rounded-md theme1 BoxShine2 Bigger w-[25px] min-[650px]:w-[30px] min-[1100px]:w-[40px] h-[25px] min-[650px]:h-[30px] min-[1100px]:h-[40px] text-sm min-[650px]:text-xl min-[1100px]:text-2xl"
                     }>{cArray[mI+4]}</button>
                 </div>
-                <button className="theme2 Bigger rounded-md text-3xl w-[50px] h-[50px]" onClick={NextF}>{">"}</button>
-                <button className="theme2 Bigger rounded-md text-3xl w-[50px] h-[50px]" onClick={LastF}>{">|"}</button>
+                <button className="theme2 Bigger rounded-md text-sm min-[650px]:text-2xl min-[1100px]:text-3xl w-[30px] min-[650px]:w-[40px] min-[1100px]:w-[50px] h-[30px] min-[650px]:h-[40px] min-[1100px]:h-[50px]" onClick={NextF}>{">"}</button>
+                <button className="theme2 Bigger rounded-md text-sm min-[650px]:text-2xl min-[1100px]:text-3xl w-[30px] min-[650px]:w-[40px] min-[1100px]:w-[50px] h-[30px] min-[650px]:h-[40px] min-[1100px]:h-[50px]" onClick={LastF}>{">|"}</button>
             </div>
     ) 
 }

@@ -13,7 +13,39 @@ export default function Navbar(props){
     //w-[1100px] min-[1400px]:w-[1400px] mx-auto
     return(
 
-        <div className="w-full theme2 fixed top-0 z-50">
+        <div className="grid w-full theme2 fixed top-0 z-50">
+            <div className="grid grid-flow-col min-[1000px]:place-content-center text-center place-self-center place-items-start min-[1000px]:place-items-center h-[80px] px-2 font-bold text-4xl  gap-8 pt-4 min-[1000px]:pt-1">
+                <div>
+                    <Image
+                        src={logo}
+                        alt="no image"
+                        width={400}
+                        height={400}
+                        className="mx-auto w-[60px] h-[50px]"
+                    />
+                </div>
+                <div className="grid grid-flow-row gap-2">
+                    <div className="grid grid-flow-col place-content-center place-self-center items-center align-middle">
+                        <SearchBar/>
+                    </div>
+
+                </div>
+                <div>
+                    <CartButton setDisplay={setDisplay} display={display} cart={cart}/>
+                </div>
+            </div>
+            <div className="grid grid-flow-col theme4 w-full gap-8 place-self-center place-content-center place-items-center text-center text-xl p-2">
+                <Link href="/"><h1 className="TextShine Bigger">Inicio</h1></Link>
+                <Link href="/search/empty"><h1 className="TextShine Bigger">Productos</h1></Link>
+                <Link href="/about"><h1 className="TextShine Bigger">Sobre Nosotros</h1></Link>
+            </div>
+ 
+        </div>
+    );
+}
+
+
+  /*      <div className="w-full theme2 fixed top-0 z-50">
             <div className="grid grid-flow-col min-[1000px]:grid-cols-3 place-self-start min-[1000px]:place-content-center  text-center place-items-start min-[1000px]:place-items-center h-[100px] px-2 font-bold text-4xl w-[500px] min-[650px]:w-[650px] min-[800px]:w-[800px] min-[1000px]:w-[1100px] min-[1400px]:w-[1400px] mx-auto gap-4 pt-4 min-[1000px]:pt-1">
                 <div>
                     <Image
@@ -40,5 +72,4 @@ export default function Navbar(props){
             </div>
  
         </div>
-    );
-}
+    */

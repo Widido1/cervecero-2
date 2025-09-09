@@ -17,7 +17,7 @@
   --color1t: #2d1103d3;
   --color2: #f5c987;
   --color2b: #facd79;
-  --color3: #073a18;
+  --color3: #421a06;
   --color4: #771200;
   --color5: #fffaf0;
   --color5b:#6b6b6b;
@@ -53,7 +53,7 @@ body {
 }
 .theme4{
   color: var(--color2);
-  background-color: var(--color4);
+  background-color: var(--color3);
   transition-duration: 0.5s;
 }
 .theme5{
@@ -131,4 +131,52 @@ body {
 }
 .hoverborder:hover{
   border: 2px solid var(--color1);
+}
+.Subrayado{
+  color: var(--color1);
+  background-color: var(--color2);
+  border-bottom: 4px solid currentColor;
+  display: inline-block; /* para que el border-bottom no ocupe todo el ancho */
+  line-height: 0.9; /* mejora la alineación */
+  transition-duration: 0.3s
+}
+
+.custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color1);
+  border-radius: 4px;
+  background-color: var(--color1);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.custom-checkbox:checked {
+  color: var(--color1);
+  background-color: var(--color1);
+  border-color: var(--color1);
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23f5c987' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.invisible-checkbox{
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color2);
+  border-radius: 4px;
+  background-color: var(--color2);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.invisible-checkbox:checked {
+  color: var(--color2);
+  background-color: var(--color2);
+  border-color: var(--color2);
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23f5c987' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+  background-position: center;
+  background-repeat: no-repeat;
 }
