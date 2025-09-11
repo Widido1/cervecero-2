@@ -128,8 +128,8 @@ export default function SearchResults(props){
 
     return(
         <div>
-            <div className="w-full theme2 fixed top-0 z-25 min-w-[600px]">
-                <div className="grid grid-flow-col min-[1000px]:grid-cols-3 place-self-start min-[1000px]:place-content-center text-center place-items-start min-[1000px]:place-items-center h-[80px] px-2 font-bold text-4xl w-[500px] min-[650px]:w-[650px] min-[800px]:w-[800px] min-[1000px]:w-[1100px] min-[1400px]:w-[1400px] mx-auto gap-4 pt-4 min-[1000px]:pt-1">
+            <div className="w-full grid theme2 fixed top-0 z-25 min-w-[600px] overflow-hidden">
+                <div className="grid grid-flow-col mx-2 min-[550px]:mx-auto min-[1000px]:grid-cols-3 place-self-start place-content-start min-[1000px]:place-content-center text-center place-items-start min-[1000px]:place-items-center h-[80px] px-2 font-bold text-4xl w-[500px] min-[650px]:w-[650px] min-[800px]:w-[800px] min-[1000px]:w-[1100px] min-[1400px]:w-[1400px] gap-4 pt-4 min-[1000px]:pt-1">
                     {/* Otro Navbar, este necesita un buscador diferente <Link href="/talleres/"><h1 className="TextShine Bigger">Talleres</h1></Link> para que no se recarge la pagina al buscar en la misma */}
                     <div>
                         <Image
@@ -149,22 +149,25 @@ export default function SearchResults(props){
                         <CartButton setDisplay={setDisplayCart} display={displayCart} cart={cart}/>
                     </div>           
                 </div>
-                <div className="grid grid-flow-col theme4 w-full gap-8 place-self-center place-content-center place-items-center text-center text-xl p-2">
-                    <Link href="/"><h1 className="TextShine Bigger">Inicio</h1></Link>
-                    <Link href="/search/empty"><h1 className="TextShine Bigger">Productos</h1></Link>
-                    <Link href="/about"><h1 className="TextShine Bigger">Sobre Nosotros</h1></Link>
+                <div className="grid grid-flow-col theme4 w-full gap-8 min-[550px]:gap-8 place-self-start min-[550px]:place-self-center place-content-start min-[550px]:place-content-center place-items-start text-center text-xl">
+                    <div className="grid grid-flow-col w-[340px] min-[550px]:w-[500px] gap-8 place-self-start min-[550px]:place-self-center place-content-center place-items-start text-center text-lg min-[550px]:text-xl py-2 pl-6">
+                        <Link href="/"><h1 className="TextShine Bigger">Inicio</h1></Link>
+                        <Link href="/search/empty"><h1 className="TextShine Bigger">Productos</h1></Link>
+                        <Link href="/about"><h1 className="TextShine Bigger">Sobre Nosotros</h1></Link>
+                    </div>
                 </div>
+
 
             </div>
 
             <div className="grid grid-flow-col place-self-start min-[650px]:place-self-center place-content-center place-items-center pt-[130px]">
                 {/* Barra de filtros / listado de productos / carrito (cuando se activa) */}
-                <div className="grid grid-flow-col place-self-center place-content-start p-2">
-                    <div className="grid grid-flow-row place-self-start text-left pt-2 gap-4 w-[180px] min-[750px]:w-[275px] min-[1200px]:w-[300px] min-[1400px]:w-[350px]">
+                <div className="grid grid-flow-col place-self-center place-content-start p-2 gap-2">
+                    <div className="grid grid-flow-row place-self-start text-left pt-2 gap-4 w-[130px] min-[550px]:w-[180px] min-[750px]:w-[275px] min-[1200px]:w-[300px] min-[1400px]:w-[350px]">
                         <div className="text-lg min-[1200px]:text-xl min-[1400px]:text-2xl min-[1700px]:text-3xl font-extrabold">Filtros de Busqueda</div>
                         <div>
                             <ButtonF head={true} set={setProducto} global={producto} value={"Cerveza"} text={"Cervezas"} setSearch={setNewSearchW}/>
-                            <div className="grid grid-flow-row place-content-start place-items-start pl-5">
+                            <div className="grid grid-flow-row place-self-start place-content-start place-items-start">
                                 <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Amber"} text={"Amber"} setSearch={setNewSearchW}/>
                                 <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"APA"} text={"APA"} setSearch={setNewSearchW}/>
                                 <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Blonde"} text={"Blonde"} setSearch={setNewSearchW}/>
@@ -178,7 +181,7 @@ export default function SearchResults(props){
                         </div>
                         <div>
                             <ButtonF head={true} set={setProducto} global={producto} value={"Ingrediente"} text={"Materias Primas"} setSearch={setNewSearchW}/>
-                            <div className="grid grid-flow-row place-content-start place-items-start pl-5">
+                            <div className="grid grid-flow-row place-content-start place-items-start">
                                 <ButtonF set={setIngredienteTipo} global={ingredienteTipo} value={"Lupulo"} text={"Lúpulo"} setSearch={setNewSearchW}/>
                                 <ButtonF set={setIngredienteTipo} global={ingredienteTipo} value={"Malta"} text={"Maltas"} setSearch={setNewSearchW}/>
                                 <ButtonF set={setIngredienteTipo} global={ingredienteTipo} value={"Levadura"} text={"Levaduras"} setSearch={setNewSearchW}/>
@@ -187,7 +190,7 @@ export default function SearchResults(props){
                         </div>
                         <div>
                             <ButtonF head={true} set={setProducto} global={producto} value={"Insumo"} text={"Equipamiento"} setSearch={setNewSearchW} />
-                            <div className="grid grid-flow-row place-content-start place-items-start pl-5">
+                            <div className="grid grid-flow-row place-content-start place-items-start">
                                 <ButtonF set={setTipoElemento} global={tipoElemento} value={"Instrumento"} text={"Medición"} setSearch={setNewSearchW}/>
                                 <ButtonF set={setTipoElemento} global={tipoElemento} value={"Envase"} text={"Envases y Tapas"} setSearch={setNewSearchW}/>
                                 <ButtonF set={setTipoElemento} global={tipoElemento} value={"Limpieza"} text={"Limpieza"} setSearch={setNewSearchW}/>
@@ -200,10 +203,10 @@ export default function SearchResults(props){
                     </div>
                     
 
-                    <div className="grid w-[320px] min-[650px]:w-[440px] min-[1100px]:w-[800px] min-[1500px]:w-[1100px] min-[1700px]:w-[1200px]">
+                    <div className="grid place-content-start w-[220px] min-[550px]:w-[320px] min-[650px]:w-[440px] min-[1100px]:w-[800px] min-[1500px]:w-[1100px] min-[1700px]:w-[1200px]">
                         <div className="grid grid-flow-row min-[650px]:grid-flow-col pb-4">
-                            <div className="font-bold text-sm min-[650px]:text-base min-[900px]:text-lg pl-2">{cantidadR} productos encontrados</div>
-                            <select className="grid place-self-start min-[650px]:place-self-end theme6 p-2 w-[80%] min-[1050px]:w-[50%]" value={orden} onChange={(e) => setOrden(e.target.value)}>
+                            <div className="grid font-bold text-sm min-[650px]:text-base min-[900px]:text-lg pl-2">{cantidadR} productos encontrados</div>
+                            <select className="grid place-self-start min-[650px]:place-self-end theme6 p-2 w-full min-[650px]:w-[80%] min-[1050px]:w-[50%]" value={orden} onChange={(e) => setOrden(e.target.value)}>
                                 <option value="Relevancia">Relevancia</option>
                                 <option value="Mayor">Mayor a menor precio</option>
                                 <option value="Menor">Menor a mayor precio</option>

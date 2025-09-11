@@ -41,7 +41,7 @@ export default function PageResults(props){
     */
  
     return(
-         <div className="flex flex-col max-[1100px]:h-[700px]">
+         <div className="flex flex-col min-w-[230px] max-[1100px]:h-[700px] overflow-hidden">
             {/* Contenedor de productos con scroll controlado */}
             <div className="flex-1 overflow-y-auto p-4">
                 <div className="grid grid-cols-1 gap-4 justify-center justify-items-center justify-self-center min-[650px]:grid-cols-2 min-[1100px]:grid-cols-4">

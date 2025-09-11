@@ -34,7 +34,7 @@ export default function Navbar(props){
                     <CartButton setDisplay={setDisplay} display={display} cart={cart}/>
                 </div>
             </div>
-            <div className="grid grid-flow-col theme4 w-full gap-8 place-self-center place-content-center place-items-center text-center text-xl p-2">
+            <div className="grid grid-flow-col theme4 w-full gap-8 place-self-center place-content-center place-items-center text-center text-lg min-[550px]:text-xl p-2">
                 <Link href="/"><h1 className="TextShine Bigger">Inicio</h1></Link>
                 <Link href="/search/empty"><h1 className="TextShine Bigger">Productos</h1></Link>
                 <Link href="/about"><h1 className="TextShine Bigger">Sobre Nosotros</h1></Link>
