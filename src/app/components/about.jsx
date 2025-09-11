@@ -16,7 +16,7 @@ export default function About(props) {
     const [displayCart, setDisplayCart] = useState(false); //estado del carrito, si esta abierto o cerrado
 
   return (
-    <div>
+    <div className="min-w-[550px]">
         <Navbar display={displayCart} setDisplay={setDisplayCart}/>
         <div className="grid h-[100px]"></div> {/* Espacio para el navbar */}
         <div className="theme3b grid grid-flow-row place-content-center place-items-center text-center py-20">
@@ -24,7 +24,7 @@ export default function About(props) {
             <div className="text-3xl min-[750px]:text-4xl min-[960px]:text-5xl min-[1200px]:text-6xl min-[1400px]:text-7xl font-semibold p-4">Fomentar la cultura cervecera artesanal<br/> con insumos, formación y<br/> asesoramiento de confianza. </div>
         </div>
         <div className="w-[90%] min-[950px]:w-[80%] mx-auto my-8">
-            <div className="grid grid-flow-col grid-cols-2 pt-16 gap-16">
+            <div className="grid grid-flow-row min-[550px]:grid-flow-col min-[550px]:grid-cols-2 pt-16 gap-16">
                 <div>
                     <Image
                         src={about01}
@@ -73,8 +73,8 @@ export default function About(props) {
                     servicios, programas formativos reconocidos y un espacio físico de encuentro (bar) que celebre la tradición y la innovación cervecera.
                 </div>
             </div>
-            <div className="grid grid-flow-col grid-cols-2 gap-16 pt-16">
-                <div className="grid grid-flow-row gap-8">
+            <div className="grid grid-flow-row min-[550px]:grid-flow-col min-[550px]:grid-cols-2 gap-16 pt-16">
+                <div className="grid grid-flow-col min-[550px]:grid-flow-row gap-8">
                     <div>
                         <Image
                             src={imgvalores1}

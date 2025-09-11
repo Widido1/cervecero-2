@@ -20,7 +20,7 @@ export default function SearchAgain(props){
     return(
         <div className="grid grid-flow-col place-self-center place-content-center">
             <input value={searchW} onChange={change} className="rounded-md theme6
-               w-[300px] min-[650px]:w-[450px] min-[850px]:w-[600px] h-[40px] min-[290px]:h-[40px] px-4 min-[340px]:px-8 text-sm min-[340px]:text-lg" placeholder="Search for a product..."/>
+              w-[200px] min-[550px]:w-[300px] min-[650px]:w-[450px] min-[850px]:w-[600px] h-[40px] min-[290px]:h-[40px] px-2 min-[550px]:px-8 text-sm min-[550px]:text-lg" placeholder="Search a product..."/>
             <button onClick={search} className="rounded-md theme1 place-self-end absolute w-[40px] h-[40px] text-2xl ">
                 <Image
                     src={search_icon}

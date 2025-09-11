@@ -38,8 +38,8 @@ export default function PaginatorSlider(props){
 
 
     return(
-        <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-2 min-[1100px]:gap-4 mt-4">
-            <button className="theme2 Bigger rounded-md text-sm min-[650px]:text-2xl min-[1100px]:text-3xl w-[30px] min-[650px]:w-[40px] min-[1100px]:w-[50px] h-[30px] min-[650px]:h-[40px] min-[1100px]:h-[50px]" onClick={FirstF}>{"|<"}</button>
+        <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-1 min-[550px]:gap-2 min-[1100px]:gap-4 mt-4">
+            <button className="max-[550px]:hidden theme2 Bigger rounded-md text-sm min-[650px]:text-2xl min-[1100px]:text-3xl w-[30px] min-[650px]:w-[40px] min-[1100px]:w-[50px] h-[30px] min-[650px]:h-[40px] min-[1100px]:h-[50px]" onClick={FirstF}>{"|<"}</button>
             <button className="theme2 Bigger rounded-md text-sm min-[650px]:text-2xl min-[1100px]:text-3xl w-[30px] min-[650px]:w-[40px] min-[1100px]:w-[50px] h-[30px] min-[650px]:h-[40px] min-[1100px]:h-[50px]" onClick={PrevF}>{"<"}</button>
                 <div>
                     <button onClick={() => setPage(cArray[mI])} className={
@@ -67,7 +67,7 @@ export default function PaginatorSlider(props){
                     }>{cArray[mI+4]}</button>
                 </div>
                 <button className="theme2 Bigger rounded-md text-sm min-[650px]:text-2xl min-[1100px]:text-3xl w-[30px] min-[650px]:w-[40px] min-[1100px]:w-[50px] h-[30px] min-[650px]:h-[40px] min-[1100px]:h-[50px]" onClick={NextF}>{">"}</button>
-                <button className="theme2 Bigger rounded-md text-sm min-[650px]:text-2xl min-[1100px]:text-3xl w-[30px] min-[650px]:w-[40px] min-[1100px]:w-[50px] h-[30px] min-[650px]:h-[40px] min-[1100px]:h-[50px]" onClick={LastF}>{">|"}</button>
+                <button className="max-[550px]:hidden theme2 Bigger rounded-md text-sm min-[650px]:text-2xl min-[1100px]:text-3xl w-[30px] min-[650px]:w-[40px] min-[1100px]:w-[50px] h-[30px] min-[650px]:h-[40px] min-[1100px]:h-[50px]" onClick={LastF}>{">|"}</button>
             </div>
     ) 
 }
