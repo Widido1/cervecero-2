@@ -46,9 +46,9 @@ export default function Slider(props){
     const PrevF = () => setMI(detI(mI - itemsToShow));
 
     return(
-        <div className="Slider mx-auto mt-8 gap-[20px] w-[250px] min-[400px]:w-[400px] min-[650px]:w-[650px] lg:w-[900px] xl:w-[1200px] px-4 pb-2">         
+        <div className="Slider mx-auto gap-[20px] min-w-[250px] min-[400px]:w-[400px] min-[650px]:w-[650px] lg:w-[900px] xl:w-[1200px] px-4 pb-2">         
             <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-4">
-                <button className="theme6 Bigger rounded-full text-5xl w-[50px] h-[50px] lg:w-[75px] lg:h-[75px] xl:w-[100px] xl:h-[100px] opacity-90" onClick={PrevF}>{"<"}</button>
+                <button className="theme6 Bigger rounded-full text-2xl min-[1150px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1150px]:w-[75px] min-[1150px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px] opacity-90" onClick={PrevF}>{"<"}</button>
                 <div className="grid grid-cols-3 min-[1150px]:grid-cols-4 gap-4 w-[580px] min-[920px]:w-[650px] min-[1150px]:w-[850px] min-[1300px]:w-[1050px] min-[1500px]:w-[1300px]">
                     {cArray.slice(mI, mI + itemsToShow).map((item, index) => (
                         <div key={index} className={index >= 3 ? "hidden min-[1150px]:block" : "block"}>
@@ -56,7 +56,7 @@ export default function Slider(props){
                         </div>
                     ))}
                 </div>
-                <button className="theme6 Bigger rounded-full text-5xl w-[50px] h-[50px] lg:w-[75px] lg:h-[75px] xl:w-[100px] xl:h-[100px] opacity-90" onClick={NextF}>{">"}</button>
+                <button className="theme6 Bigger rounded-full text-2xl min-[1150px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1150px]:w-[75px] min-[1150px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px] opacity-90" onClick={NextF}>{">"}</button>
             </div>
 
         </div>

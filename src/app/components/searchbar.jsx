@@ -4,18 +4,37 @@ import Link from "next/link";
 import { useState } from "react";
 import search_icon from "@/app/images/search_icon.png"; // Assuming you have a search icon image
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 
 export default function SearchBar(props){
-    const [searchW, setSearchW] = useState(""); 
+    const [searchW, setSearchW] = useState("");
+    const router = useRouter(); 
 
     const change = event =>{
         const newValue = event.target.value;
         setSearchW(newValue);
     }
 
+    const handleSearch = () => {
+        if (searchW.trim() !== "") {
+            router.push(`/search/${searchW}`);
+        } else {
+            router.push("/search/empty");
+        }
+    }
+
+    // Función para manejar la tecla Enter
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevenir comportamiento por defecto
+            handleSearch();
+        }
+    }
+
     return(
         <div className="grid grid-flow-col place-self-center place-content-center">
-            <input value={searchW} onChange={change} className="rounded-md theme6
+            <input value={searchW} onChange={change} onKeyDown={handleKeyDown} className="rounded-md theme6
                w-[300px] min-[650px]:w-[450px] min-[1150px]:w-[600px] h-[40px] min-[290px]:h-[40px] px-4 min-[340px]:px-8 text-sm min-[340px]:text-lg" placeholder="Search for a product..."/>
             <Link className="grid place-self-end absolute " href={
                 searchW !== "" ? (`/search/${searchW}`):("/search/empty")    

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import noimage from "@/app/images/noimage.webp"; //importamos la imagen por defecto
+import { cutString } from "../functions/cutString";
 
 export default function PriorityCard(props){
     const product = props.product;
@@ -22,7 +23,7 @@ export default function PriorityCard(props){
                     />
                     <div className="grid grid-flow-row place-items-start place-content-start text-left ">
                         <div className="text-xs min-[920px]:text-sm min-[1400px]:text-base font-semibold">{product.name}</div>
-                        <div className="text-[11px] min-[920px]:text-xs min-[1400px]:text-sm">{product.description}</div>
+                        <div className="text-[11px] min-[920px]:text-xs min-[1400px]:text-sm">{cutString(product.description, 200) }</div>
                     </div>
                 </div>
             </button>
