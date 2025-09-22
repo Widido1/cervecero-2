@@ -3,13 +3,11 @@ import banner from "@/app/images/banner.webp"
 
 export default function Banner(props) {
   return (
-    <div className="relative w-full aspect-[1920/624] overflow-hidden">
+    <div className="grid w-full overflow-hidden">
       <Image
         src={banner}
         alt="Banner principal"
-        fill
-        className="object-cover"
-        priority
+        className="min-w-[900px] w-full h-auto object-cover"
       />
     </div>
   )    

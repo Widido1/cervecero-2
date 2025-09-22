@@ -3,6 +3,7 @@ import Image from "next/image";
 import noimage from "@/app/images/noimage.webp";
 import AddCartButton from "./addCartButton";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 // ProductBox is for the main page, the one where we can see all the products
 
@@ -27,6 +28,7 @@ export default function ProductCard(props) {
         <div>
             <div className="themeCard grid grid-flow-row place-content-center place-items-center rounded-md gap-2 py-4 w-[200px] min-[760px]:w-[200px] min-[1100px]:w-[175px] min-[1500px]:w-[250px] min-[1700px]:w-[275px]">
                 <div className="grid px-8">
+                    <Link href={`/products/${product.id}`}>
                     <Image 
                         src={pImg} //si no hay imagen, se muestra la imagen de placeholder
                         alt="sin imagen"
@@ -36,10 +38,11 @@ export default function ProductCard(props) {
                         //fill={true}
                         //style={imageStyle}
                     />
+                    </Link>
                     <div>
-                        <h1 className="rounded-t-md w-full font-bold py-4 h-[100px] text-xs min-[1500px]:text-sm">{/*<-- routing dinamico*/}
+                        <Link href={`/products/${product.id}`}><h1 className="rounded-t-md w-full font-bold py-4 h-[100px] text-xs min-[1500px]:text-sm">{/*<-- routing dinamico*/}
                         {pName}
-                        </h1>
+                        </h1></Link>
                     </div>
                     
                     <div>
