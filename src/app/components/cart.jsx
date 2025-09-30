@@ -53,7 +53,7 @@ export default function Cart(props){
 
     useEffect(() => {
         if(otraLoc === "Ciudad de Santa Fe"){
-            setCosto(3000);
+            setCosto(5);
         }else{
             setCosto(0);
         }
