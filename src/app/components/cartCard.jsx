@@ -6,7 +6,7 @@ export default function CartCard(props){
     const {removeFromCart} = useCart();
 
     return(
-        <div key={product.id} className="theme5 gap-4 py-2 mx-4 w-[500px] min-[700px]:w-[600px] h-[120px] rounded-md grid grid-flow-col place-self-start place-content-start place-items">
+        <div key={product.id} className="theme5 gap-4 py-2 mx-4 w-[450px] min-[700px]:w-[550px] h-[120px] rounded-md grid grid-flow-col place-self-start place-content-start place-items">
             
             <Image
                 src={product.img}

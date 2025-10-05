@@ -58,11 +58,11 @@ export default function SearchResults(props){
         if(searchW === "empty"){
             setCantidadR(allProducts.length); //si la palabra de busqueda es vacia, se le asigna el valor de "empty" para que no haya errores
             setNewSearchW(purged); //actualiza el valor de la nueva busqueda
-        }else if(searchW === "Maltas"){setResults(results.filter(x => x.type === "Malta")); setCantidadR(results.length); setNewSearchW("Maltas");
-        }else if(searchW === "Levaduras"){setResults(results.filter(x => x.type === "Levadura")); setCantidadR(results.length); setNewSearchW("Levaduras");
-        }else if(searchW === "Lupulos"){setResults(results.filter(x => x.type === "Lupulo")); setCantidadR(results.length); setNewSearchW("Lupulos");
-        }else if(searchW === "Kits"){setResults(results.filter(x => x.productType === "Kit")); setCantidadR(results.length); setNewSearchW("Kits");
-        }else if(searchW === "Equipamiento"){setResults(results.filter(x => x.productType === "Insumo")); setCantidadR(results.length); setNewSearchW("Equipamiento");
+        }else if(searchW === "Maltas"){setResults(results.filter(x => x.type === "Malta" && x.stock > 0)); setCantidadR(results.length); setNewSearchW("Maltas");
+        }else if(searchW === "Levaduras"){setResults(results.filter(x => x.type === "Levadura" && x.stock > 0)); setCantidadR(results.length); setNewSearchW("Levaduras");
+        }else if(searchW === "Lupulos"){setResults(results.filter(x => x.type === "Lupulo" && x.stock > 0)); setCantidadR(results.length); setNewSearchW("Lupulos");
+        }else if(searchW === "Kits"){setResults(results.filter(x => x.productType === "Kit" && x.stock > 0)); setCantidadR(results.length); setNewSearchW("Kits");
+        }else if(searchW === "Equipamiento"){setResults(results.filter(x => x.productType === "Insumo" && x.stock > 0)); setCantidadR(results.length); setNewSearchW("Equipamiento");
         }else{
             setCantidadR(results.length); //si la palabra de busqueda no es vacia, se le asigna el valor de la cantidad de resultados
             setNewSearchW(purged); //actualiza el valor de la nueva busqueda
@@ -72,16 +72,16 @@ export default function SearchResults(props){
 
     useEffect(() => {
     
-    let filtered = [...allProducts];
+    let filtered = [...allProducts].filter(x => x.stock > 0); // Start with all products that are in stock
 
     // Apply search term filter
     if (newSearchW !== "" && newSearchW !== "default" && newSearchW !== "empty") {
         //Filtros de CirculoCategorias
-        if(newSearchW === "Maltas"){filtered = allProducts.filter(x => x.type === "Malta"); setIngredienteTipo("Malta");
-        }else if(newSearchW === "Levaduras"){filtered = allProducts.filter(x => x.type === "Levadura"); setIngredienteTipo("Levadura");
-        }else if(newSearchW === "Lupulos"){filtered = allProducts.filter(x => x.type === "Lupulo"); setIngredienteTipo("Lupulo");
-        }else if(newSearchW === "Kits"){filtered = allProducts.filter(x => x.productType === "Kit"); setProducto("Kit");
-        }else if(newSearchW === "Equipamiento"){filtered = allProducts.filter(x => x.productType === "Insumo"); setProducto("Insumo");
+        if(newSearchW === "Maltas"){filtered = allProducts.filter(x => x.type === "Malta" && x.stock > 0); setIngredienteTipo("Malta");
+        }else if(newSearchW === "Levaduras"){filtered = allProducts.filter(x => x.type === "Levadura" && x.stock > 0); setIngredienteTipo("Levadura");
+        }else if(newSearchW === "Lupulos"){filtered = allProducts.filter(x => x.type === "Lupulo" && x.stock > 0); setIngredienteTipo("Lupulo");
+        }else if(newSearchW === "Kits"){filtered = allProducts.filter(x => x.productType === "Kit" && x.stock > 0); setProducto("Kit");
+        }else if(newSearchW === "Equipamiento"){filtered = allProducts.filter(x => x.productType === "Insumo" && x.stock > 0); setProducto("Insumo");
         //================================================
         }else{
             const purged = purgeSearch(newSearchW);
@@ -90,10 +90,10 @@ export default function SearchResults(props){
     }
 
     // Apply other filters
-    if (producto !== "default") filtered = filtered.filter(x => x.productType === producto);
-    if (cervezaTipo !== "default") filtered = filtered.filter(x => x.productType === "Cerveza" && x.type === cervezaTipo);
-    if (ingredienteTipo !== "default") { filtered = filtered.filter(x => x.type === ingredienteTipo)};
-    if (tipoElemento !== "default") { filtered = filtered.filter(x => x.type === tipoElemento)};
+    if (producto !== "default") filtered = filtered.filter(x => x.productType === producto && x.stock > 0);
+    if (cervezaTipo !== "default") filtered = filtered.filter(x => x.productType === "Cerveza" && x.type === cervezaTipo && x.stock > 0);
+    if (ingredienteTipo !== "default") { filtered = filtered.filter(x => x.type === ingredienteTipo && x.stock > 0)};
+    if (tipoElemento !== "default") { filtered = filtered.filter(x => x.type === tipoElemento && x.stock > 0)};
     //if (cervezaCapacidad !== "default") filtered = filtered.filter(x => x.productType === "Cerveza" && x.quantity === cervezaCapacidad);
     //if (precioCerveza !== "default" ) {
     //    switch (precioCerveza) {
@@ -164,7 +164,7 @@ export default function SearchResults(props){
                 {/* Barra de filtros / listado de productos / carrito (cuando se activa) */}
                 <div className="grid grid-flow-col place-self-center place-content-start p-2 gap-2">
                     <div className="grid grid-flow-row place-self-start text-left pt-2 gap-4 w-[130px] min-[550px]:w-[180px] min-[750px]:w-[275px] min-[1200px]:w-[300px] min-[1400px]:w-[350px]">
-                        <div className="text-lg min-[1200px]:text-xl min-[1400px]:text-2xl min-[1700px]:text-3xl font-extrabold">Filtros de Busqueda</div>
+                        <div className="text-lg min-[1200px]:text-xl min-[1400px]:text-2xl min-[1700px]:text-3xl font-extrabold">Filtros de Búsqueda</div>
                         <div>
                             <ButtonF head={true} set={setProducto} global={producto} value={"Cerveza"} text={"Cervezas"} setSearch={setNewSearchW}/>
                             <div className="grid grid-flow-row place-self-start place-content-start place-items-start">

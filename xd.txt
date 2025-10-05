@@ -1,0 +1,77 @@
+Payment status:  approved
+Payment ID:  127565308293
+Payer Info:  {
+  email: 'pabloj.zanelli@gmail.com',
+  entity_type: null,
+  first_name: null,
+  id: '370506220',
+  identification: { number: '20403179648', type: 'CUIT' },
+  last_name: null,
+  operator_id: null,
+  phone: { number: null, extension: null, area_code: null },
+  type: null
+}
+Items purchased:  [
+  {
+    id: 'cmg6zgvur0000vw34zg0mcich',
+    quantity: '1',
+    title: 'CERVEZA DE PRUEBA',
+    unit_price: '1.0'
+  },
+  {
+    description: '- Ciudad de Santa Fe ,- Dirección de Envío: ElSotanoDePanlote 3390',
+    id: 'shipping_cost',
+    quantity: '1',
+    title: 'Envío',
+    unit_price: '5.0'
+  }
+]
+Payment amount:  6
+Payment date:  2025-09-30T19:29:40.000-04:00
+
+
+Payment status:  approved
+Payment ID:  128136723634
+Payer Info:  {
+  email: 'nachito_2222@hotmail.com.ar',
+  entity_type: null,
+  first_name: null,
+  id: '514999321',
+  identification: { number: '23423314419', type: 'CUIL' },
+  last_name: null,
+  operator_id: null,
+  phone: { number: null, extension: null, area_code: null },
+  type: null
+}
+Items purchased:  [
+  {
+    id: 'cmg6zgvur0000vw34zg0mcich',
+    quantity: '1',
+    title: 'CERVEZA DE PRUEBA',
+    unit_price: '1'
+  },
+  {
+    description: '- Ciudad de Santa Fe ,- Dirección de Envío: aaa',
+    id: 'shipping_cost',
+    quantity: '1',
+    title: 'Envío',
+    unit_price: '5'
+  }
+]
+Payment amount:  6
+Payment date:  2025-09-30T20:32:28.000-04:00
+
+Lista de cosas por arreglar:
+
++++ Email al comprador con la notificación de la compra.
+++ El logo en la barra superior no se ve nítido. Te paso una versión mejor para reemplazarlo.
++ Reordenar las cards del home según el PDF home.pdf (sección inferior: productos, maltas y levaduras).
+
+? Paginación: ahora, al apretar > se salta a la siguiente sección de páginas (ej. de 1→6). Esto es confuso. El botón > debería avanzar una página (ej.: 1 → 2). Los botones |< y >| que lleven a la primera y última página, respectivamente.
+? Cambiar "Completar compra" por "Continuar compra", porque en ese paso el usuario todavía no terminó ni eligió el método de pago.
+
+- Cambiar la tipografía del banner a Merriweather.
+  “Nuestra misión”: Merriweather — Regular, 32 pt
+  “Fomentar la cultura…”: Merriweather — Black, 72 pt
+-- Al abrir el carrito no se difumina/oscurece el fondo; eso ayudaría a dar sensación de modal. Si no querés oscurecer el fondo completo, al menos agregar un contorno marrón (el mismo color de la web) en el borde izquierdo del carrito para que se note que está “sobre” la página.
+-- Comportamiento de selección de filtros: si hago click en un título (ej. Cervezas) y luego en otro (ej. Materias primas) me da la sensación de que Materias primas quedó “activa” aunque no lo esté. Sería ideal que al clickear otro título se seleccione correctamente sin necesidad de volver a hacer click (evitar tener que hacer doble click para activar).
