@@ -27,20 +27,16 @@ export default function PageResults(props){
         }
     }, [items.length, totalPages, currentPage]);
 
-    /*useEffect(() => {
-        // Lo mismo para el paginador
-        // If current paginator is beyond the new total pages, go to last paginator
-        if (currentPaginator > totalPages && totalPages > 0) {
-            setCurrentPaginator(totalPages);
-        }
-        // If items were empty and now we have some, go to first paginator
-        else if (totalPages > 0 && currentPaginator < 1) {
-            setCurrentPaginator(1);
-        }
-    }, [items.length, totalPages, currentPaginator]);
-    */
  
     return(
+        <div>
+        {items.length === 0 ? (
+            <div className="flex justify-center items-center min-[1100px]:text-3xl text-center 
+            min-w-[230px] min-[650px]:w-[800px] min-[1100px]:w-[1100px] h-96">
+                No se encontraron resultados.<br/>
+                Intente con otros filtros o palabras clave.
+            </div>
+        ):(
          <div className="flex flex-col min-w-[230px] max-[1100px]:h-[700px] overflow-hidden">
             {/* Contenedor de productos con scroll controlado */}
             <div className="flex-1 overflow-y-auto p-4">
@@ -66,6 +62,9 @@ export default function PageResults(props){
                 </div>
             </div>
         </div>
+        )}
+        </div>
+        
     )
 }
 
@@ -88,4 +87,17 @@ export default function PageResults(props){
                 <PaginatorSlider items={pages} page={currentPage} setPage={setCurrentPage} />
             </div>
         </div>
+*/
+
+/*  useEffect(() => {
+        // Lo mismo para el paginador
+        // If current paginator is beyond the new total pages, go to last paginator
+        if (currentPaginator > totalPages && totalPages > 0) {
+            setCurrentPaginator(totalPages);
+        }
+        // If items were empty and now we have some, go to first paginator
+        else if (totalPages > 0 && currentPaginator < 1) {
+            setCurrentPaginator(1);
+        }
+    }, [items.length, totalPages, currentPaginator]);
 */

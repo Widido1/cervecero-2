@@ -2,6 +2,9 @@ import { Payment } from "mercadopago";
 import { revalidatePath } from "next/cache";
 import { MercadoPagoConfig } from 'mercadopago';
 import { sendEmail } from "@/app/actions/sendEmail";
+import { customerEmail } from "@/app/actions/customerEmail";
+
+// payment.payer.email esta es la variable de email
 
 const client = new MercadoPagoConfig({ 
   accessToken: process.env.MP_ACCESS_TOKEN 
@@ -25,7 +28,7 @@ export async function POST(request) {
     if(payment.additional_info.items[payment.additional_info.items.length - 1].id === "shipping_cost") {
       textoEnvio = payment.additional_info.items[payment.additional_info.items.length - 1].description.split(",");
     }
-
+    //email para el vendedor
     const paymentData = `
       ¡Hola! Se ha realizado una nueva compra exitosa en tu tienda:
       Información del pago:
@@ -53,6 +56,28 @@ export async function POST(request) {
       text: paymentData
     };
     sendEmail(paymentEmail);
+
+    //email para el cliente
+    const customerEmailText = `
+      ¡Hola!
+      Gracias por tu compra en nuestra tienda. Aquí tienes los detalles de tu pedido:
+      Productos comprados:
+      ${payment.additional_info.items.map(item => `\t- ${item.title}: ${item.quantity}`).join("\n")}
+      Total de la compra: ${payment.transaction_amount}$
+      Fecha del pago: ${payment.date_approved}
+      ID del pago: ${payment.id}
+      Enviaremos su pedido en los proximos días.
+      Si tienes alguna pregunta, no dudes en contactarnos: ${process.env.EMAIL}
+      ¡Gracias por elegirnos!
+      Saludos cordiales,
+      La Boutique del Cervecero
+    `;
+    const customerEmailData = { 
+      email: `${payment.payer.email}`,
+      text: customerEmailText
+    };
+    customerEmail(customerEmailData);
+    
     revalidatePath("/");
   }
 

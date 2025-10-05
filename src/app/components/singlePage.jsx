@@ -4,6 +4,7 @@ import SingleCard from "./singleCard";
 import Navbar from "./navbar";
 import Pie from "./pie";
 import Slider from "./slider";
+import Cart from "./cart";
 
 export default function SinglePage(props) {
     const product = props.product; //aqui van los items que se pasan al slider, por ahora un array vacio
@@ -22,6 +23,7 @@ export default function SinglePage(props) {
                     <div><Slider items={items}/></div>
                 </div>
             </div>
+            <Cart className active={displayCart} setActive={setDisplayCart}/>
             <Pie/>
 
 

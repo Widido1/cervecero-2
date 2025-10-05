@@ -2,6 +2,7 @@ import Image from "next/image";
 import logo from "@/app/images/logo.png";
 import fb_icon from "@/app/images/fb_icon.png";
 import ig_icon from "@/app/images/ig_icon.png";
+import Link from "next/link";
 
 export default function Pie(props) {
   return (
@@ -19,22 +20,26 @@ export default function Pie(props) {
                 </div>
                 <div className="grid grid-flow-row min-[950px]:grid-flow-col place-self-center place-content-center place-items-center text-xl gap-2 min-[950px]:gap-4">
                     <div>
+                      <Link href="https://www.facebook.com/laboutiquedelcervecero">
                       <Image
                           src={fb_icon}
                           alt="Facebook Icon"
                           width={40}
                           height={40}
-                          className="grid place-self-center"
+                          className="grid place-self-center cursor-pointer"
                       />
+                      </Link>
                     </div>
                     <div>
+                      <Link href="https://www.instagram.com/laboutiquedelcervecero/">
                       <Image
                           src={ig_icon}
                           alt="Instagram Icon"
                           width={40}
                           height={40}
-                          className="grid place-self-center"
+                          className="grid place-self-center cursor-pointer"
                       />
+                      </Link>
                     </div>
                 </div>
             </div>
