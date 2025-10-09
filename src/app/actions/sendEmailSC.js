@@ -4,7 +4,7 @@ import { Resend } from "resend"
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const sendEmailSC = async (data) => {
-    const email = data.email;
+    //const email = data.email;
     const message = data.text;
 
     await resend.emails.send({
@@ -12,6 +12,6 @@ export const sendEmailSC = async (data) => {
         to: process.env.EMAIL,
         subject: "SOLICITUD DE COMPRA ",
         text: message,
-        replyTo: email,
+        replyTo: process.env.EMAIL,
     });
 }
