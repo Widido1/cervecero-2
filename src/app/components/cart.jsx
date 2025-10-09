@@ -202,7 +202,7 @@ export default function Cart(props){
         Nos pondremos en contacto contigo pronto para confirmar los detalles de tu pedido.
         Gracias por elegirnos para tu compra.
 
-        Si tienes alguna pregunta, no dudes en contactarnos: ${EMAIL}
+        Si tienes alguna pregunta, no dudes en contactarnos: ${emailSol}
         ¡Gracias por elegir la Boutique del Cervecero!
         `;
         const emailCliente = { 
