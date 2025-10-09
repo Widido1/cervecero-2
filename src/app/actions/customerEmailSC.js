@@ -12,6 +12,6 @@ export const customerEmailSC = async (data) => {
         to: email,
         subject: "SOLICITUD DE COMPRA REALIZADA ",
         text: message,
-        replyTo: process.env.EMAIL,
+        replyTo: email,
     });
 }

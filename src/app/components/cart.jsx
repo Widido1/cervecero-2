@@ -206,7 +206,7 @@ export default function Cart(props){
         ¡Gracias por elegir la Boutique del Cervecero!
         `;
         const emailCliente = { 
-            email: `${emailSol}`,
+            email: emailSol,
             text: textoCliente
         };
         console.log("Datos del email al cliente:", emailCliente);
