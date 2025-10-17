@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useCart } from "../hooks/usecart";
 import CartPages from "./cartPages";
 import { createPreference } from "@/app/api"; // Importa la API si es necesario
-import { customerEmailSC } from "@/app/actions/customerEmailSC";
 import { sendEmailSC } from "@/app/actions/sendEmailSC";
+import { customerEmailSC } from "@/app/actions/customerEmailSC";
 import { validateEmail } from "../functions/validateEmail";
 
 const EMAIL = process.env.NEXT_PUBLIC_EMAIL;
