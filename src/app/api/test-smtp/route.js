@@ -1,4 +1,4 @@
-import { createTransporter } from '@/libs/email-config';
+import { createTransporter } from '@/app/libs/email-config';
 
 export async function GET() {
   try {
