@@ -22,7 +22,7 @@ export const sendEmailSC = async (emailData) => {
 
     return { success: true };
   } catch (error) {
-    console.error('Error enviando email:', error);
+    console.error('Error en sendEmailSC:', error);
     return { success: false, error: error.message };
   }
 };

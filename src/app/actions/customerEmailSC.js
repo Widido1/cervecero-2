@@ -23,7 +23,7 @@ export const customerEmailSC = async (emailData) => {
 
     return { success: true };
   } catch (error) {
-    console.error('Error enviando email al cliente:', error);
+    console.error('Error en customerEmailSC:', error);
     return { success: false, error: error.message };
   }
 };
