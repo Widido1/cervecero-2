@@ -7,7 +7,7 @@ export default function CartButton(props){
     const { setDisplay } = props; //desestructuracion de la funcion para cambiar el estado del carrito
     const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0); //calculo del total de items en el carrito
 
-    const totalItemsCSS = "absolute top-[-5] theme3 rounded-full px-2 py-1 text-sm font-bold";
+    
 
     return(
         <div className="relative flex items-center justify-center">
@@ -19,7 +19,7 @@ export default function CartButton(props){
                 className="Bigger text-[var(--color2)] z-10 top-0"
                 onClick={() => setDisplay(!display)} //funcion que se ejecuta al hacer click en el carrito
             />
-            <span className={totalItemsCSS}>
+            <span className="absolute top-[-5px] theme3 rounded-full px-2 py-1 text-sm font-bold">
                 {totalItems}
             </span>
 
