@@ -56,7 +56,7 @@ export default function PageResults(props){
             </div>
             
             {/* Paginador fijo */}
-            <div className="flex-shrink-0 bg-white py-4 border-t">
+            <div className="flex-shrink-0 py-4 border-t">
                 <div className="flex justify-center">
                     <PaginatorSlider items={pages} page={currentPage} setPage={setCurrentPage} />
                 </div>
