@@ -6,7 +6,7 @@ import { customerEmailSC } from "@/app/actions/customerEmailSC";
 import { sendEmailSC } from "@/app/actions/sendEmailSC";
 import { validateEmail } from "../functions/validateEmail";
 
-const EMAIL = process.env.NEXT_PUBLIC_EMAIL;
+const EMAIL = process.env.EMAIL;
 
 export default function Cart(props){
     const {active, setActive} = props; //estado del carrito
