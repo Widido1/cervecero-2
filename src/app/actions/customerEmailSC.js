@@ -8,7 +8,7 @@ export const customerEmailSC = async (data) => {
     const message = data.text;
 
     await resend.emails.send({
-        from: "onboarding@resend.dev",
+        from: process.env.EMAIL_FROM,
         to: email,
         subject: "SOLICITUD DE COMPRA REALIZADA ",
         text: message,
