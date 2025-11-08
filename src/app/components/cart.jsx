@@ -188,7 +188,7 @@ export default function Cart(props){
             email: `${EMAIL}`,
             text: textoVendedor
         };
-        console.log("Datos del email de solicitud:", emailVendedor);
+        console.log("Datos del email de solicitud:", emailVendedor.email);
         await sendEmailSC(emailVendedor);
 
         //Email para el cliente
@@ -246,10 +246,10 @@ export default function Cart(props){
                                     <div className="theme3 grid grid-flow-row min-[700px]:grid-flow-col place-content-center rounded-md w-[300px] min-[700px]:w-[600px] h-[55px] min-[700px]:h-[45px] gap-0 min-[700px]:gap-2 my-1 text-lg font-bold"> <div>Retirar en Av. Gral. Paz 7826, </div><div>Santa Fe</div> </div>
                                 ) : (
                                     <div>
-                                        <select className="theme3 grid place-content-center rounded-md w-[300px] min-[700px]:w-[600px] h-[45px] pl-2 my-1 text-lg font-bold" value={otraLoc} onChange={(e) => setOtraLoc(e.target.value)}>
-                                            <option value={""} disabled>Seleccione su localidad</option>
-                                            <option value={"Ciudad de Santa Fe"} >Ciudad de Santa Fe</option>
-                                            <option value={"Otra"} >Otra localidad</option>
+                                        <select className="theme3 grid place-content-center rounded-md w-[300px] min-[700px]:w-[600px] h-[45px] pl-2 my-1 text-lg font-bold cursor-pointer" value={otraLoc} onChange={(e) => setOtraLoc(e.target.value)}>
+                                            <option value={""} disabled className="cursor-pointer">Seleccione su localidad</option>
+                                            <option value={"Ciudad de Santa Fe"} className="cursor-pointer">Ciudad de Santa Fe</option>
+                                            <option value={"Otra"} className="cursor-pointer">Otra localidad</option>
                                         </select>
                                     </div>
                                 )

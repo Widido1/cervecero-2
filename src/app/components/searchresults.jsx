@@ -132,6 +132,7 @@ export default function SearchResults(props){
                 <div className="grid grid-flow-col mx-2 min-[550px]:mx-auto min-[1000px]:grid-cols-3 place-self-start place-content-start min-[1000px]:place-content-center text-center place-items-start min-[1000px]:place-items-center h-[80px] px-2 font-bold text-4xl w-[500px] min-[650px]:w-[650px] min-[800px]:w-[800px] min-[1000px]:w-[1100px] min-[1400px]:w-[1400px] gap-4 pt-4 min-[1000px]:pt-1">
                     {/* Otro Navbar, este necesita un buscador diferente <Link href="/talleres/"><h1 className="TextShine Bigger">Talleres</h1></Link> para que no se recarge la pagina al buscar en la misma */}
                     <div>
+                        <Link href="/" className="cursor-pointer">
                         <Image
                             src={logo}
                             alt="no image"
@@ -139,6 +140,7 @@ export default function SearchResults(props){
                             height={400}
                             className="mx-auto w-[60px] h-[50px]"
                         />
+                        </Link>
                     </div>
                     <div className="grid grid-flow-row place-content-center place items-center gap-2">
                         <div className="grid grid-flow-col place-content-center place-self-center place-items-center align-middle">

@@ -10,7 +10,7 @@ export default function CartButton(props){
     
 
     return(
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex items-center justify-center cursor-pointer">
             <Image
                 src={carritoweb}
                 alt="cart"

@@ -1,9 +1,14 @@
-"use server"
 
 
 import SearchResults from "../../components/searchresults";
 import { prisma } from "../../libs/prisma";
 
+export async function generateMetadata() {
+  return {
+    title: `Resultados de búsqueda: - La Boutique del Cervecero`,
+    description: `Encuentra los mejores productos de cerveza artesanal. Insumos, equipos y accesorios de calidad.`,
+  }
+}
 
 async function loadProducts() {
   try {
