@@ -10,6 +10,7 @@ export default function Pie(props) {
         <div className="grid grid-flow-row min-[550px]:grid-flow-col place-content-center grid-rows-2 min-[950px]:grid-cols-4 min-[950px]:grid-rows-1 place-self-center place-items-start gap-4 min-[950px]:gap-8 pt-12 pb-8 w-[85%] min-[1300px]:w-[70%]">
             <div className="grid grid-flow-col min-[950px]:grid-flow-row place-self-start place-content-center place-items-start gap-4">
                 <div>
+                  <Link href="/" className="cursor-pointer">
                     <Image
                         src={logo}
                         alt="no image"
@@ -17,6 +18,7 @@ export default function Pie(props) {
                         height={400}
                         className="mx-auto w-[90px] h-[90px] min-[950px]:w-[150px] min-[950px]:h-[150px]"
                     />
+                  </Link>
                 </div>
                 <div className="grid grid-flow-row min-[950px]:grid-flow-col place-self-center place-content-center place-items-center text-xl gap-2 min-[950px]:gap-4">
                     <div>

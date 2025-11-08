@@ -16,6 +16,7 @@ export default function Navbar(props){
         <div className="grid w-full theme2 fixed top-0 z-50">
             <div className="grid grid-flow-col min-[1000px]:place-content-center text-center place-self-center place-items-start min-[1000px]:place-items-center h-[80px] px-2 font-bold text-4xl  gap-8 pt-4 min-[1000px]:pt-1">
                 <div>
+                    <Link href="/" className="cursor-pointer">
                     <Image
                         src={logo}
                         alt="no image"
@@ -23,6 +24,7 @@ export default function Navbar(props){
                         height={400}
                         className="mx-auto w-[60px] h-[50px]"
                     />
+                    </Link>
                 </div>
                 <div className="grid grid-flow-row gap-2">
                     <div className="grid grid-flow-col place-content-center place-self-center items-center align-middle">

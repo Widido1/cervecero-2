@@ -1,7 +1,10 @@
-"use server"
 import HomePage from "./components/homePage";
 import { prisma } from "@/app/libs/prisma";
 
+export const metadata = {
+  title: "Inicio - La Boutique del Cervecero",
+  description: "Bienvenido a La Boutique del Cervecero, tu tienda online de insumos, equipos y accesorios para elaborar cerveza artesanal. Descubre nuestra amplia gama de productos de alta calidad y comienza a crear tus propias cervezas en casa hoy mismo.",
+}
 
 async function loadProducts() {
   try {

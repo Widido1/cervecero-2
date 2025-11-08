@@ -2,6 +2,18 @@ import SinglePage from "@/app/components/singlePage";
 
 import { prisma } from "@/app/libs/prisma";
 
+export async function generateMetadata({ params }) {
+  const product = await prisma.product.findFirst({
+    where: { id: params.id },
+    select: { name: true, description: true }
+  });
+
+  return {
+    title: product ? `${product.name} - La Boutique del Cervecero` : "Producto No Encontrado",
+    description: product?.description || "Producto para cerveza artesanal"
+  }
+}
+
 export default async function ProductPage({params}){
     
     const product = await prisma.product.findFirst({
