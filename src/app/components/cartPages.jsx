@@ -22,12 +22,15 @@ export default function CartPages(props){
     }, [items.length, totalPages, currentPage]);
  
     return(
-        <div className="grid grid-flow-row place-content-center w-full h-[350px] min-[700px]:h-[500px] px-4">
-            <div className="grid grid-flow-row place-content-start place-items-center gap-4 h-[350px] min-[700px]:h-[500px] overflow-y-auto">
-                {items.map((item) => (
-                    <div key={item.id} ><CartCard product={item}/></div>
-                ))}
+        <div className="grid grid-flow-row place-content-center w-full h-full py-4 overflow-hidden min-h-0">
+            <div className="grid grid-flow-row place-content-center w-full h-full py-4 overflow-y-auto min-h-0">
+                <div className="grid grid-flow-row place-content-start place-items-center gap-4 w-full h-full overflow-y-scroll">
+                    {items.map((item) => (
+                        <div key={item.id}><CartCard product={item}/></div>
+                    ))}
+                </div>
             </div>
+
         </div>
     )
 }
