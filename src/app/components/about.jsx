@@ -38,20 +38,18 @@ export default function About(props) {
                     <div className="text-xl min-[950px]:text-2xl min-[1300px]:text-3xl font-semibold">Nuestra Historia</div>
                     <div className="grid grid-flow-row gap-2 min-[1100px]:gap-4 pt-2 min-[1600px]:pt-4">
                         <div className="text-sm min-[1450px]:text-base min-[1600px]:text-lg">
-                        <p>La “Boutique del Cervecero” es un proyecto que nace en el corazón del Barrio
-                            Barranquitas, en la ciudad de Santa Fe, hace cerca de una década, para
-                            satisfacer las necesidades de los cerveceros caseros locales. Una iniciativa de
-                            Marcelo Gil, por entonces Homebrewer, y que hoy lidera una de las cervecerías
-                            artesanales más importantes de América Latina: Okcidenta.
+                        <p>La “Boutique del Cervecero” es un proyecto que nace en el corazón del Barrio Barranquitas, 
+                            en la ciudad de Santa Fe, hace cerca de una década, para satisfacer las necesidades de los 
+                            cerveceros caseros locales. Una iniciativa de Marcelo Gil, por entonces Homebrewer, y que hoy 
+                            lidera una de las cervecerías artesanales más importantes de América Latina: Okcidenta.
                         </p>
                         </div>
                         <div className="text-sm min-[1450px]:text-base min-[1600px]:text-lg"><p>
-                            A fines de 2019 la familia Luengo toma la posta en este proyecto y le da
-                            continuidad en el Barrio República de los Hornos, manteniendo el objetivo de
-                            acercar al Cervecero Casero Santafecino los insumos y la capacitación
-                            necesarias para que la ciudad de Santa Fe y la región puedan disponer de los
-                            mejores recursos para seguir siendo líderes en la producción de cervezas de
-                            todo tipo, especialmente artesanales.
+                            A fines de 2019 la familia Luengo toma la posta en este proyecto y le da continuidad en el
+                             Barrio de Guadalupe, manteniendo el objetivo de acercar al Cervecero Casero Santafecino 
+                             los insumos y la capacitación necesarias para que la ciudad de Santa Fe y la región puedan 
+                             disponer de los mejores recursos para seguir siendo líderes en la producción de cervezas de 
+                             todo tipo, especialmente artesanales.
                         </p></div>
                     </div>
                 </div>
