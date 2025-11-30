@@ -167,20 +167,7 @@ export default function SearchResults(props){
                 <div className="grid grid-flow-col place-self-center place-content-start p-2 gap-2">
                     <div className="grid grid-flow-row place-self-start text-left pt-2 gap-4 w-[130px] min-[550px]:w-[180px] min-[750px]:w-[275px] min-[1200px]:w-[300px] min-[1400px]:w-[350px]">
                         <div className="text-lg min-[1200px]:text-xl min-[1400px]:text-2xl min-[1700px]:text-3xl font-extrabold">Filtros de Búsqueda</div>
-                        <div>
-                            <ButtonF head={true} set={setProducto} global={producto} value={"Cerveza"} text={"Cervezas"} setSearch={setNewSearchW}/>
-                            <div className="grid grid-flow-row place-self-start place-content-start place-items-start">
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Amber"} text={"Amber"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"APA"} text={"APA"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Blonde"} text={"Blonde"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Golden"} text={"Golden"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Honey"} text={"Honey"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"IPA"} text={"IPA"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Porter"} text={"Porter"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Red"} text={"Red"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Stout"} text={"Stout"} setSearch={setNewSearchW}/>
-                            </div>
-                        </div>
+
                         <div>
                             <ButtonF head={true} set={setProducto} global={producto} value={"Ingrediente"} text={"Materias Primas"} setSearch={setNewSearchW}/>
                             <div className="grid grid-flow-row place-content-start place-items-start">
@@ -201,6 +188,20 @@ export default function SearchResults(props){
                             </div>
                         </div>
                         <div><ButtonF head={true} set={setProducto} global={producto} value={"Kit"} text={"Kits de Elaboración"} setSearch={setNewSearchW}/></div>
+                        <div>
+                            <ButtonF head={true} set={setProducto} global={producto} value={"Cerveza"} text={"Cervezas"} setSearch={setNewSearchW}/>
+                            <div className="grid grid-flow-row place-self-start place-content-start place-items-start">
+                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Amber"} text={"Amber"} setSearch={setNewSearchW}/>
+                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"APA"} text={"APA"} setSearch={setNewSearchW}/>
+                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Blonde"} text={"Blonde"} setSearch={setNewSearchW}/>
+                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Golden"} text={"Golden"} setSearch={setNewSearchW}/>
+                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Honey"} text={"Honey"} setSearch={setNewSearchW}/>
+                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"IPA"} text={"IPA"} setSearch={setNewSearchW}/>
+                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Porter"} text={"Porter"} setSearch={setNewSearchW}/>
+                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Red"} text={"Red"} setSearch={setNewSearchW}/>
+                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Stout"} text={"Stout"} setSearch={setNewSearchW}/>
+                            </div>
+                        </div>
                         <div><ButtonF head={true} set={setProducto} global={producto} value={"Otro"} text={"Otros"} setSearch={setNewSearchW}/></div>
                     </div>
                     

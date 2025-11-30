@@ -20,7 +20,7 @@ export default function SliderPrioridad(props) {
                     alt="no image"
                     width={400}
                     height={400}
-                    className="mx-auto w-[300px] h-[300px] min-[1100px]:w-[400px] min-[1100px]:h-[400px]"
+                    className="rounded-[10%] mx-auto w-[300px] h-[300px] min-[1100px]:w-[400px] min-[1100px]:h-[400px]"
                 />
             </div>
             <div className="grid grid-flow-row place-self-center place-content-start place-items-start gap-2">
