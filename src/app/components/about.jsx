@@ -10,8 +10,6 @@ import imgvalores1 from "@/app/images/imgvalores1.webp";
 import imgvalores2 from "@/app/images/imgvalores2.webp";
 
 
-
-
 export default function About(props) {
     const [displayCart, setDisplayCart] = useState(false); //estado del carrito, si esta abierto o cerrado
 
