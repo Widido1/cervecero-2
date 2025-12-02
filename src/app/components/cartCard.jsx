@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useCart } from "../hooks/usecart";
+import CartQuantity from "@/app/components/cartQuantity";
 
 export default function CartCard(props){
     const product = props.product;
@@ -20,10 +21,10 @@ export default function CartCard(props){
                 <h1 className="theme1">{product.des}</h1>
                 <div className="grid grid-flow-col place-content-start place-items-center gap-4">
                     <div className="grid grid-flow-col place-content-center place-items-center text-center gap-1">
-                        <h1 className="text-lg">Cantidad: </h1> <h1 className="text-2xl font-bold">{product.quantity}</h1>
+                        <CartQuantity product={props.product}/>
                     </div>
                     <button onClick={() => removeFromCart(product)} className="theme3 Bigger px-2 py-1 rounded-md text-lg">Eliminar</button>
-                    <p className="text-2xl font-bold">{product.price}$</p>
+                    <p className="text-2xl font-bold">{product.price*product.quantity}$</p>
                 </div>
             </div>
         </div>
