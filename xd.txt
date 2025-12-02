@@ -64,9 +64,8 @@ Payment date:  2025-09-30T20:32:28.000-04:00
 Lista de cosas por arreglar:
 
 ++ El logo en la barra superior no se ve nítido. Te paso una versión mejor para reemplazarlo.
-
-? Paginación: ahora, al apretar > se salta a la siguiente sección de páginas (ej. de 1→6). Esto es confuso. El botón > debería avanzar una página (ej.: 1 → 2). Los botones |< y >| que lleven a la primera y última página, respectivamente.
-? Cambiar "Completar compra" por "Continuar compra", porque en ese paso el usuario todavía no terminó ni eligió el método de pago.
+++ Botón para agregar o quitar cantidad de productos
++ Paginación: ahora, al apretar > se salta a la siguiente sección de páginas (ej. de 1→6). Esto es confuso. El botón > debería avanzar una página (ej.: 1 → 2). Los botones |< y >| que lleven a la primera y última página, respectivamente.
 
 - Cambiar la tipografía del banner a Merriweather.
   “Nuestra misión”: Merriweather — Regular, 32 pt

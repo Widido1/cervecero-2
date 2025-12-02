@@ -18,16 +18,37 @@ export default function CartProvider({ children }) {
     }
   };
 
-  const removeFromCart = (item) => {
+  const addMultipleCart = (item, number) => {
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      setCart(cart.map((cartItem) => 
+        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + number } : cartItem
+      ));
+    } else {
+      setCart([...cart, { ...item, quantity: number }]);
+    }
+  };
+  
+
+  const decreaseFromCart = (item) => {
     const existingItem = cart.find((cartItem) => cartItem.id === item.id);
     if (existingItem) {
       if (existingItem.quantity > 1) {
+        // Si hay más de 1 unidad, disminuye la cantidad en 1
         setCart(cart.map((cartItem) => 
           cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
         ));
       } else {
-        setCart(cart.filter((cartItem) => cartItem.id !== item.id));
+        // Si solo hay 1 unidad, elimina el producto del carrito
+        removeFromCart(item);
       }
+    }
+  };
+
+  const removeFromCart = (item) => {
+    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+        setCart(cart.filter((cartItem) => cartItem.id !== item.id));
     }
   };
 
@@ -38,7 +59,7 @@ export default function CartProvider({ children }) {
 
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, clearCart, decreaseFromCart, addMultipleCart }}>
       {children}
     </CartContext.Provider>
   );

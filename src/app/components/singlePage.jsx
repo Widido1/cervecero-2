@@ -16,7 +16,7 @@ export default function SinglePage(props) {
             <div className="grid h-[120px]"></div> {/* Espacio para el navbar */}
             <div className="grid place-content-center place-items-center gap-8 py-8">
                 <div className="grid">
-                    <SingleCard id={product.id} name={product.name} img={product.imageUrl} des={product.description} price={product.price}/>
+                    <SingleCard id={product.id} name={product.name} img={product.imageUrl} des={product.description} price={product.price} type={product.type}/>
                 </div>
                 <div className="grid grid-flow-row place-content-center place-items-center min-[900px]:place-content-start min-[900px]:place-items-start gap-4">
                     <div className="grid text-2xl font-bold">Productos Similares:</div>
