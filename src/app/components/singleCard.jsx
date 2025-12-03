@@ -44,12 +44,12 @@ export default function SingleCard(props) {
                             //style={imageStyle}
                         />
                     </div>
-                    <div className="grid grid-flow-row grid-rows-2">
+                    <div className="grid grid-rows-[1fr_auto]">
                         <div>
-                            <div className="rounded-t-md w-full font-bold py-2 min-[900px]:py-4 text-2xl min-[1100px]:text-3xl">
+                            <div className="rounded-t-md w-full font-bold text-2xl min-[1100px]:text-3xl">
                                 {props.name}
                             </div>
-                            <div className="rounded-t-md w-full font-bold py-2 text-lg min-[1100px]:text-xl">
+                            <div className="rounded-t-md w-full font-bold pt-1 text-base min-[1100px]:text-lg">
                                 {props.des}
                             </div>
                         </div>
