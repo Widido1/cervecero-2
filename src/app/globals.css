@@ -140,11 +140,11 @@ body {
 .Subrayado{
   color: var(--color1);
   background-color: var(--color2);
-  border-bottom: 4px solid currentColor;
-  display: inline-block; /* para que el border-bottom no ocupe todo el ancho */
-  line-height: 0.9; /* mejora la alineación */
-  transition-duration: 0.3s
+  display: grid;
+  transition-duration: 0.2s;
+  box-shadow: inset 0 -3px 0 0 currentColor; /* Subrayado interno */
 }
+
 
 .custom-checkbox {
   width: 20px;

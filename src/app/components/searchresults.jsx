@@ -24,11 +24,28 @@ export default function SearchResults(props){
     
     //Filtros de busqueda
     const [orden, setOrden] = useState("Relevancia"); //orden de los productos
-    const [cervezaTipo, setCervezaTipo] = useState("default"); //Tipo de cerveza
-    const [ingredienteTipo, setIngredienteTipo] = useState("default"); //tipo de ingrediente
-    const [tipoElemento, setTipoElemento] = useState("default"); //tipo de elemento
-    const [producto, setProducto] = useState("default"); //libros y revistas
-
+    //const [producto, setProducto] = useState("default"); //Categorias generales
+    //const [ingredienteTipo, setIngredienteTipo] = useState("default"); //Malta, Lúpulo, Levadura, etc.
+    //const [tipoElemento, setTipoElemento] = useState("default"); //Tipo de elemento
+    //const [cervezaTipo, setCervezaTipo] = useState("default"); //Tipo de cerveza
+    const [filters, setFilters] = useState({
+        producto: "default",        // categoría principal
+        cervezaTipo: "default",     // tipo de cerveza
+        ingredienteTipo: "default", // tipo de ingrediente
+        tipoElemento: "default",    // tipo de elemento
+    });
+    const handleFilterChange = (filterType, value) => {
+        setFilters({
+            producto: "default",
+            cervezaTipo: "default",
+            ingredienteTipo: "default",
+            tipoElemento: "default",
+            [filterType]: value // Solo activa el filtro seleccionado
+        });
+        
+        // También resetea la búsqueda si es necesario
+        setNewSearchW("empty");
+    };
 
     const purgeSearch = (word) => {
         let purged = word.toLowerCase(); //pasa la palabra de busqueda a minisculas, para que las mayusculas no entorpezcan la busqueda
@@ -77,11 +94,11 @@ export default function SearchResults(props){
     // Apply search term filter
     if (newSearchW !== "" && newSearchW !== "default" && newSearchW !== "empty") {
         //Filtros de CirculoCategorias
-        if(newSearchW === "Maltas"){filtered = allProducts.filter(x => x.type === "Malta" && x.stock > 0); setIngredienteTipo("Malta");
-        }else if(newSearchW === "Levaduras"){filtered = allProducts.filter(x => x.type === "Levadura" && x.stock > 0); setIngredienteTipo("Levadura");
-        }else if(newSearchW === "Lupulos"){filtered = allProducts.filter(x => x.type === "Lupulo" && x.stock > 0); setIngredienteTipo("Lupulo");
-        }else if(newSearchW === "Kits"){filtered = allProducts.filter(x => x.productType === "Kit" && x.stock > 0); setProducto("Kit");
-        }else if(newSearchW === "Equipamiento"){filtered = allProducts.filter(x => x.productType === "Insumo" && x.stock > 0); setProducto("Insumo");
+        if(newSearchW === "Maltas"){filtered = allProducts.filter(x => x.type === "Malta" && x.stock > 0); handleFilterChange("ingredienteTipo", "Malta");
+        }else if(newSearchW === "Levaduras"){filtered = allProducts.filter(x => x.type === "Levadura" && x.stock > 0); handleFilterChange("ingredienteTipo", "Levadura");
+        }else if(newSearchW === "Lupulos"){filtered = allProducts.filter(x => x.type === "Lupulo" && x.stock > 0); handleFilterChange("ingredienteTipo", "Lupulo");
+        }else if(newSearchW === "Kits"){filtered = allProducts.filter(x => x.productType === "Kit" && x.stock > 0); handleFilterChange("producto", "Kit");
+        }else if(newSearchW === "Equipamiento"){filtered = allProducts.filter(x => x.productType === "Insumo" && x.stock > 0); handleFilterChange("producto", "Insumo");
         //================================================
         }else{
             const purged = purgeSearch(newSearchW);
@@ -89,27 +106,17 @@ export default function SearchResults(props){
         }
     }
 
-    // Apply other filters
+    if (filters.producto !== "default") { filtered = filtered.filter(x => x.productType === filters.producto && x.stock > 0);}
+    if (filters.cervezaTipo !== "default") { filtered = filtered.filter(x => x.productType === "Cerveza" && x.type === filters.cervezaTipo && x.stock > 0);}
+    if (filters.ingredienteTipo !== "default") {filtered = filtered.filter(x => x.type === filters.ingredienteTipo && x.stock > 0);}
+    if (filters.tipoElemento !== "default") {filtered = filtered.filter(x => x.type === filters.tipoElemento && x.stock > 0);}
+    // Viejos filtros
+    /*
     if (producto !== "default") filtered = filtered.filter(x => x.productType === producto && x.stock > 0);
     if (cervezaTipo !== "default") filtered = filtered.filter(x => x.productType === "Cerveza" && x.type === cervezaTipo && x.stock > 0);
     if (ingredienteTipo !== "default") { filtered = filtered.filter(x => x.type === ingredienteTipo && x.stock > 0)};
     if (tipoElemento !== "default") { filtered = filtered.filter(x => x.type === tipoElemento && x.stock > 0)};
-    //if (cervezaCapacidad !== "default") filtered = filtered.filter(x => x.productType === "Cerveza" && x.quantity === cervezaCapacidad);
-    //if (precioCerveza !== "default" ) {
-    //    switch (precioCerveza) {
-    //       case "-4000":
-    //           filtered = filtered.filter(x => x.price < 4000 && x.productType === "Cerveza");
-    //           break;
-    //       case "4000-7000":
-    //           filtered = filtered.filter(x => x.price >= 4000 && x.price <= 7000 && x.productType === "Cerveza");
-    //            break;
-    //        case "+7000":
-    //            filtered = filtered.filter(x => x.price > 7000 && x.productType === "Cerveza");
-    //            break;
-    //        default:
-    //            break;
-    //    }
-    //}
+    */
 
     if(orden === "Relevancia"){
         filtered = filtered.sort((a, b) => b.priority - a.priority); // Ordena por prioridad
@@ -122,7 +129,7 @@ export default function SearchResults(props){
     setResults(filtered);
     setCantidadR(filtered.length); // Update count
 
-    }, [newSearchW, producto, cervezaTipo, ingredienteTipo, tipoElemento, orden, allProducts]);
+    }, [newSearchW, filters, orden, allProducts]);
 
  //cuando se cambia el valor de results, se ejecuta el useEffect
 
@@ -169,40 +176,40 @@ export default function SearchResults(props){
                         <div className="text-lg min-[1200px]:text-xl min-[1400px]:text-2xl min-[1700px]:text-3xl font-extrabold">Filtros de Búsqueda</div>
 
                         <div>
-                            <ButtonF head={true} set={setProducto} global={producto} value={"Ingrediente"} text={"Materias Primas"} setSearch={setNewSearchW}/>
+                            <ButtonF head={true} set={handleFilterChange} global={filters.producto} filterType="producto" value={"Ingrediente"} text={"Materias Primas"} setSearch={setNewSearchW}/>
                             <div className="grid grid-flow-row place-content-start place-items-start">
-                                <ButtonF set={setIngredienteTipo} global={ingredienteTipo} value={"Lupulo"} text={"Lúpulo"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setIngredienteTipo} global={ingredienteTipo} value={"Malta"} text={"Maltas"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setIngredienteTipo} global={ingredienteTipo} value={"Levadura"} text={"Levaduras"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setIngredienteTipo} global={ingredienteTipo} value={"Ingrediente"} text={"Otros Ingredientes"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.ingredienteTipo} filterType="ingredienteTipo" value={"Lupulo"} text={"Lúpulo"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.ingredienteTipo} filterType="ingredienteTipo" value={"Malta"} text={"Maltas"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.ingredienteTipo} filterType="ingredienteTipo" value={"Levadura"} text={"Levaduras"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.ingredienteTipo} filterType="ingredienteTipo" value={"Ingrediente"} text={"Otros Ingredientes"} setSearch={setNewSearchW}/>
                             </div> 
                         </div>
                         <div>
-                            <ButtonF head={true} set={setProducto} global={producto} value={"Insumo"} text={"Equipamiento"} setSearch={setNewSearchW} />
+                            <ButtonF head={true} set={handleFilterChange} global={filters.producto} filterType="producto" value={"Insumo"} text={"Equipamiento"} setSearch={setNewSearchW} />
                             <div className="grid grid-flow-row place-content-start place-items-start">
-                                <ButtonF set={setTipoElemento} global={tipoElemento} value={"Instrumento"} text={"Medición"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setTipoElemento} global={tipoElemento} value={"Envase"} text={"Envases y Tapas"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setTipoElemento} global={tipoElemento} value={"Limpieza"} text={"Limpieza"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setTipoElemento} global={tipoElemento} value={"Pala"} text={"Palas de Madera"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setTipoElemento} global={tipoElemento} value={"Elemento"} text={"Otros Elementos"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.tipoElemento} filterType="tipoElemento" value={"Instrumento"} text={"Medición"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.tipoElemento} filterType="tipoElemento" value={"Envase"} text={"Envases y Tapas"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.tipoElemento} filterType="tipoElemento" value={"Limpieza"} text={"Limpieza"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.tipoElemento} filterType="tipoElemento" value={"Pala"} text={"Palas de Madera"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.tipoElemento} filterType="tipoElemento" value={"Elemento"} text={"Otros Elementos"} setSearch={setNewSearchW}/>
                             </div>
                         </div>
-                        <div><ButtonF head={true} set={setProducto} global={producto} value={"Kit"} text={"Kits de Elaboración"} setSearch={setNewSearchW}/></div>
+                        <div><ButtonF head={true} set={handleFilterChange} global={filters.producto} filterType="producto" value={"Kit"} text={"Kits de Elaboración"} setSearch={setNewSearchW}/></div>
                         <div>
-                            <ButtonF head={true} set={setProducto} global={producto} value={"Cerveza"} text={"Cervezas"} setSearch={setNewSearchW}/>
+                            <ButtonF head={true} set={handleFilterChange} global={filters.producto} filterType="producto" value={"Cerveza"} text={"Cervezas"} setSearch={setNewSearchW}/>
                             <div className="grid grid-flow-row place-self-start place-content-start place-items-start">
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Amber"} text={"Amber"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"APA"} text={"APA"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Blonde"} text={"Blonde"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Golden"} text={"Golden"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Honey"} text={"Honey"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"IPA"} text={"IPA"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Porter"} text={"Porter"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Red"} text={"Red"} setSearch={setNewSearchW}/>
-                                <ButtonF set={setCervezaTipo} global={cervezaTipo} value={"Stout"} text={"Stout"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.cervezaTipo} filterType="cervezaTipo" value={"Amber"} text={"Amber"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.cervezaTipo} filterType="cervezaTipo" value={"APA"} text={"APA"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.cervezaTipo} filterType="cervezaTipo" value={"Blonde"} text={"Blonde"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.cervezaTipo} filterType="cervezaTipo" value={"Golden"} text={"Golden"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.cervezaTipo} filterType="cervezaTipo" value={"Honey"} text={"Honey"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.cervezaTipo} filterType="cervezaTipo" value={"IPA"} text={"IPA"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.cervezaTipo} filterType="cervezaTipo" value={"Porter"} text={"Porter"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.cervezaTipo} filterType="cervezaTipo" value={"Red"} text={"Red"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.cervezaTipo} filterType="cervezaTipo" value={"Stout"} text={"Stout"} setSearch={setNewSearchW}/>
                             </div>
                         </div>
-                        <div><ButtonF head={true} set={setProducto} global={producto} value={"Otro"} text={"Otros"} setSearch={setNewSearchW}/></div>
+                        <div><ButtonF head={true} set={handleFilterChange} global={filters.producto} filterType="producto" value={"Otro"} text={"Otros"} setSearch={setNewSearchW}/></div>
                     </div>
                     
 
