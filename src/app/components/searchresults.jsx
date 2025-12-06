@@ -178,9 +178,9 @@ export default function SearchResults(props){
                         <div>
                             <ButtonF head={true} set={handleFilterChange} global={filters.producto} filterType="producto" value={"Ingrediente"} text={"Materias Primas"} setSearch={setNewSearchW}/>
                             <div className="grid grid-flow-row place-content-start place-items-start">
-                                <ButtonF set={handleFilterChange} global={filters.ingredienteTipo} filterType="ingredienteTipo" value={"Lupulo"} text={"Lúpulo"} setSearch={setNewSearchW}/>
                                 <ButtonF set={handleFilterChange} global={filters.ingredienteTipo} filterType="ingredienteTipo" value={"Malta"} text={"Maltas"} setSearch={setNewSearchW}/>
                                 <ButtonF set={handleFilterChange} global={filters.ingredienteTipo} filterType="ingredienteTipo" value={"Levadura"} text={"Levaduras"} setSearch={setNewSearchW}/>
+                                <ButtonF set={handleFilterChange} global={filters.ingredienteTipo} filterType="ingredienteTipo" value={"Lupulo"} text={"Lúpulo"} setSearch={setNewSearchW}/>
                                 <ButtonF set={handleFilterChange} global={filters.ingredienteTipo} filterType="ingredienteTipo" value={"Ingrediente"} text={"Otros Ingredientes"} setSearch={setNewSearchW}/>
                             </div> 
                         </div>
