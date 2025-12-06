@@ -55,7 +55,7 @@ export default function SingleCard(props) {
                         </div>
 
                         {
-                            (props.type === "Malta" || props.type === "Lupulo" || props.type === "Levadura") ? (
+                            props.type === "Malta" ? (
                             <div>
                                 <div>
                                     <h1 className="font-bold text-2xl">Seleccionar Cantidad:</h1>
