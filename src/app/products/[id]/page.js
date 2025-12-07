@@ -1,10 +1,12 @@
 import SinglePage from "@/app/components/singlePage";
-
 import { prisma } from "@/app/libs/prisma";
 
 export async function generateMetadata({ params }) {
+  // SOLO AGREGAR ESTA LÍNEA
+  const { id: productId } = await params;
+  
   const product = await prisma.product.findFirst({
-    where: { id: params.id },
+    where: { id: productId },  // Cambiar params.id por productId
     select: { name: true, description: true }
   });
 
@@ -14,49 +16,47 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export default async function ProductPage({params}){
+export default async function ProductPage({ params }){
+  // SOLO AGREGAR ESTA LÍNEA
+  const { id: productId } = await params;
     
-    const product = await prisma.product.findFirst({
-        where:{
-            id: params.id
-        }
-    });
-
-    const items = await prisma.product.findMany({
-        where:{
-            type: product.type
-        },
-        orderBy:{ 
-            priority: 'desc' 
-        }
-
-    });
-
-    if(items.length < 8){
-        const itemsNeeded = 8 - items.length;
-        let moreItems = [];
-        for(let i = 0; i < itemsNeeded; i++){
-            const randomItem = await prisma.product.findFirst({
-                where:{
-                    productType: product.productType,
-                    NOT: { id: product.id }
-                }
-            });
-            moreItems.push(randomItem);
-        }
-        moreItems = moreItems.sort((a, b) => b.priority - a.priority);
-        items.push(...moreItems);
+  const product = await prisma.product.findFirst({
+    where: {
+      id: productId  // Cambiar params.id por productId
     }
+  });
 
+  const items = await prisma.product.findMany({
+    where: {
+      type: product.type
+    },
+    orderBy: { 
+      priority: 'desc' 
+    }
+  });
 
+  if(items.length < 8){
+    const itemsNeeded = 8 - items.length;
+    let moreItems = [];
+    for(let i = 0; i < itemsNeeded; i++){
+      const randomItem = await prisma.product.findFirst({
+        where: {
+          productType: product.productType,
+          NOT: { id: product.id }
+        }
+      });
+      moreItems.push(randomItem);
+    }
+    moreItems = moreItems.sort((a, b) => b.priority - a.priority);
+    items.push(...moreItems);
+  }
 
-    return(
-        <div>
-            <SinglePage product={product} items={items}/>
-        </div>
-    );
-} 
-
+  return(
+    <div>
+      <SinglePage product={product} items={items}/>
+    </div>
+  );
+}
 
 /*
     const purgeWord = (word) => {
