@@ -28,7 +28,7 @@ export default function HomeCard(props) {
 
     return(
         <div>
-            <div className="themeCard grid grid-flow-row place-content-center rounded-md gap-2 py-4 w-[175px] min-[1000px]:w-[200px] min-[1300px]:w-[250px] min-[1500px]:w-[300px]">
+            <div className="themeCard grid grid-flow-row place-content-center rounded-md gap-2 py-4 w-[170px] min-[550px]:w-[200px] min-[1300px]:w-[250px] min-[1500px]:w-[300px]">
                 <div className="grid px-8">
                     <Link href={`/products/${product.id}`}>
                         <Image 
