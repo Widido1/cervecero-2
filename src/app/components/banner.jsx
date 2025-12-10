@@ -7,7 +7,7 @@ export default function Banner(props) {
       <Image
         src={banner}
         alt="Banner principal"
-        className="min-w-[900px] w-full h-auto object-cover"
+        className="w-full h-auto object-cover"
       />
     </div>
   )    
