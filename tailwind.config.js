@@ -9,5 +9,12 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  theme: {
+    extend: {
+      screens: {
+        'custom-500': '500px',
+      }
+    }
+  },
 }
 

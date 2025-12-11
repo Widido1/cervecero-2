@@ -18,7 +18,7 @@ export default function HomePage(props) {
   const [displayCart, setDisplayCart] = useState(false); //estado del carrito, si esta abierto o cerrado
 
   return (
-    <div className="min-w-[500px]">
+    <div className="min-w-[400px]">
       <Navbar display={displayCart} setDisplay={setDisplayCart}/>
       <div className="grid h-[120px]"></div> {/* Espacio para el navbar */}
       <Banner/>
@@ -54,20 +54,17 @@ export default function HomePage(props) {
         </div>
         
         <div>
-          <div className="grid grid-flow-row place-content-center place-items-center">
-            <div className="text-center text-3xl font-extrabold p-4">Productos</div>
-            <Slider items={priorityProducts}/>
+          <div className="grid place-content-center place-items-center">
+            <Slider items={priorityProducts} name="Productos"/>
           </div>
           <div>
             <SliderPrioridad products={priorityProducts}/>
           </div>
-          <div className="grid grid-flow-row place-content-center place-items-center">
-            <div className="text-center text-3xl font-extrabold p-4">Maltas</div>
-            <Slider items={maltaProducts}/>
+          <div className="grid place-content-center place-items-center">
+            <Slider items={maltaProducts} name="Maltas"/>
           </div>
-          <div className="grid grid-flow-row place-content-center place-items-center">
-            <div className="text-center text-3xl font-extrabold p-4">Levaduras</div>
-            <Slider items={levaduraProducts}/>
+          <div className="grid place-content-center place-items-center">
+            <Slider items={levaduraProducts} name="Levaduras"/>
           </div>
 
         </div>
