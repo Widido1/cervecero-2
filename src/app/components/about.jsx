@@ -14,7 +14,7 @@ export default function About(props) {
     const [displayCart, setDisplayCart] = useState(false); //estado del carrito, si esta abierto o cerrado
 
   return (
-    <div className="min-w-[550px]">
+    <div className="min-w-[400px]">
         <Navbar display={displayCart} setDisplay={setDisplayCart}/>
         <div className="grid h-[100px]"></div> {/* Espacio para el navbar */}
         <div className="theme3b grid grid-flow-row place-content-center place-items-center text-center py-14 min-[750px]:py-20">
@@ -70,14 +70,14 @@ export default function About(props) {
                 </div>
             </div>
             <div className="grid grid-flow-row min-[550px]:grid-flow-col min-[550px]:grid-cols-2 pt-8 min-[750px]:pt-16 gap-8 min-[750px]:gap-16">
-                <div className="grid grid-flow-col min-[550px]:grid-flow-row gap-8">
+                <div className="grid grid-flow-col min-[550px]:grid-flow-row gap-4 min-[500px]:gap-8">
                     <div>
                         <Image
                             src={imgvalores1}
                             alt="no image"
                             width={600}
                             height={600}
-                            className="mx-auto w-full h-[250px] min-[1250px]:h-[350px] rounded-lg"
+                            className="mx-auto w-full h-[180px] min-[1250px]:h-[350px] rounded-lg"
                         />
                     </div>
                     <div>
@@ -86,7 +86,7 @@ export default function About(props) {
                             alt="no image"
                             width={600}
                             height={600}
-                            className="mx-auto w-full h-[250px] min-[1250px]:h-[350px] rounded-lg"
+                            className="mx-auto w-full h-[180px] min-[500px]:h-[250px] min-[1250px]:h-[350px] rounded-lg"
                         />
                     </div>
                 </div>
