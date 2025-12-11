@@ -16,6 +16,7 @@ export default function Slider(props){
     const [itemsToShow, setItemsToShow] = useState(4);
     const [arrowL, setArrowL] = useState("");
     const [arrowR, setArrowR] = useState("");
+    const name = props.name;
 
     useEffect(() => {
         const updateItemsToShow = () => {
@@ -80,19 +81,26 @@ export default function Slider(props){
     
 
     return(
-        <div className="Slider mx-auto gap-[20px] w-[350px] min-[550px]:w-[420px] min-[850px]:w-[650px] min-[1100px]:w-[900px] min-[1300px]:w-[1200px] px-4 pb-2">         
-            <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-4">
-                <button className={arrowL} onClick={PrevF}>{"<"}</button>
-                <div className="grid grid-cols-2 min-[850px]:grid-cols-3 min-[1100px]:grid-cols-4 gap-4 w-[350px] min-[550px]:w-[420px] min-[850px]:w-[650px] min-[1100px]:w-[850px] min-[1300px]:w-[1050px] min-[1500px]:w-[1300px]">
-                    {cArray.slice(mI, mI + itemsToShow).map((item, index) => (
-                        <div key={index} className={`${index >= itemsToShow ? "hidden" : "block"}`}>
-                            {item}
-                        </div>
-                    ))}
-                </div>
-                <button className={arrowR} onClick={NextF}>{">"}</button>
+        <div>
+            <div className="grid grid-flow-col place-content-center place-items-center">
+                <div className="block custom-500:hidden"><button onClick={PrevF} className="theme6 Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px] opacity-90" >{"<"}</button></div>
+                <div className="text-center text-3xl font-extrabold p-4">{name}</div>
+                <div className="block custom-500:hidden"><button onClick={NextF} className="theme6 Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px] opacity-90">{">"}</button></div>
             </div>
-
+            <div className="Slider mx-auto gap-[20px] w-[350px] min-[550px]:w-[420px] min-[850px]:w-[650px] min-[1100px]:w-[900px] min-[1300px]:w-[1200px] px-4 pb-2">         
+                <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-4">
+                    <button className={`${arrowL} hidden custom-500:block`} onClick={PrevF}>{"<"}</button>
+                    <div className="grid grid-cols-2 min-[850px]:grid-cols-3 min-[1100px]:grid-cols-4 gap-4 w-[350px] min-[550px]:w-[420px] min-[850px]:w-[650px] min-[1100px]:w-[850px] min-[1300px]:w-[1050px] min-[1500px]:w-[1300px]">
+                        {cArray.slice(mI, mI + itemsToShow).map((item, index) => (
+                            <div key={index} className={`${index >= itemsToShow ? "hidden" : "block"}`}>
+                                {item}
+                            </div>
+                        ))}
+                    </div>
+                    <button className={`${arrowR} hidden custom-500:block`} onClick={NextF}>{">"}</button>
+                </div>
+            </div>
         </div>
+
     ) 
 }

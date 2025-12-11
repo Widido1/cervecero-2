@@ -14,7 +14,7 @@ export default function Navbar(props){
     return(
 
         <div className="grid w-full theme2 fixed top-0 z-50">
-            <div className="grid grid-flow-col min-[1000px]:place-content-center text-center place-self-center place-items-start min-[1000px]:place-items-center h-[80px] px-2 font-bold text-4xl  gap-8 pt-4 min-[1000px]:pt-1">
+            <div className="grid grid-flow-col min-[1000px]:place-content-center text-center place-self-center place-items-start min-[1000px]:place-items-center h-[80px] px-1 min-[500px]:px-2 font-bold text-4xl gap-4 min-[500px]:gap-8 pt-4 min-[1000px]:pt-1">
                 <div>
                     <Link href="/" className="cursor-pointer">
                     <Image

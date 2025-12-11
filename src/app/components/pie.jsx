@@ -63,7 +63,7 @@ export default function Pie(props) {
               <div className="text-xs grid grid-flow-row gap-2">Preguntas frecuentes</div>
             </div>
         </div>
-        <div className="grid place-content-center w-full theme4 p-4">
+        <div className="grid place-content-center w-full theme4 p-4 text-center">
           <div>© 2025 Luengo Cervezas S.A.S. Todos los derechos reservados</div>
         </div>
     </div>
