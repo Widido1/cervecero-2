@@ -160,9 +160,9 @@ export default function SearchResults(props){
                 </div>
                 <div className="grid grid-flow-col theme4 w-full gap-8 min-[550px]:gap-8 place-self-start min-[550px]:place-self-center place-content-start min-[550px]:place-content-center place-items-start text-center text-xl">
                     <div className="grid grid-flow-col w-[340px] min-[550px]:w-[500px] gap-8 place-self-start min-[550px]:place-self-center place-content-center place-items-start text-center text-lg min-[550px]:text-xl py-2 pl-6">
-                        <Link href="/"><h1 className="TextShine Bigger">Inicio</h1></Link>
-                        <Link href="/search/empty"><h1 className="TextShine Bigger">Productos</h1></Link>
-                        <Link href="/about"><h1 className="TextShine Bigger">Sobre Nosotros</h1></Link>
+                        <Link href="/"><h1 className="TextShine Bigger Merry">Inicio</h1></Link>
+                        <Link href="/search/empty"><h1 className="TextShine Bigger Merry">Productos</h1></Link>
+                        <Link href="/about"><h1 className="TextShine Bigger Merry">Sobre Nosotros</h1></Link>
                     </div>
                 </div>
 
