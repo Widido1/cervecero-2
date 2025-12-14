@@ -41,7 +41,7 @@ export default function HomePage(props) {
           </div>
           <div className="grid grid-flow-col gap-6 min-[920px]:gap-12">
             <div className="grid grid-flow-row place-content-start place-items-center h-[160px] min-[650px]:h-[200px] min-[1100px]:h-[250px]">
-              <div><CirculoCategoria img={"https://res.cloudinary.com/drh0qrube/image/upload/v1754773578/kits_small_iy1yxj.png"} tipo={"Kits"}/></div>
+              <div><CirculoCategoria img={"https://res.cloudinary.com/dx5i98ab2/image/upload/v1765674184/img_kits_de_elaboraci%C3%B3n_tumy1l.jpg"} tipo={"Kits"}/></div>
               <div className="text-lg min-[920px]:text-xl font-semibold text-center pt-4">Kits de<br/>Elaboración</div>
             </div>
             <div className="grid grid-flow-row place-content-start place-items-center h-[160px] min-[650px]:h-[200px] min-[1100px]:h-[250px]">
