@@ -171,7 +171,7 @@ export default function Cart(props){
 
     return(
         <div className={style} onClick={() => setActive(!active)}>
-            <div className="fixed right-0 top-0 grid grid-flow-row grid-flow-rows-[auto_1fr_auto] h-screen theme2 z-50 w-[350px] min-[700px]:w-[700px]">
+            <div className="fixed right-0 top-0 grid grid-flow-row grid-flow-rows-[auto_1fr_auto] h-screen theme2 z-50 w-[350px] min-[700px]:w-[700px]" onClick={(e) => e.stopPropagation()}>
                 <div id="problem" className="w-full grid grid-rows-[auto_1fr] min-h-0">
                     <div className="w-full h-[60px] theme2 grid grid-cols-[1fr_auto_1fr] place-items-center px-4">
                         <div></div>
