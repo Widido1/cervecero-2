@@ -34,17 +34,7 @@ export default function Cart(props){
     useEffect(() => {
         if(active === true){
             setStyle(` 
-                fixed 
-                right-0 
-                top-0 
-                min-[700px]:w-[700px]
-                w-[350px] 
-                h-screen
-                theme2
-                z-50
-                grid 
-                grid-flow-row
-                grid-flow-rows-[auto_1fr_auto]
+                grid fixed w-full h-full top-0 left-0 bg-black bg-opacity-50 z-50
             `);
         }else{
             setStyle("hidden");
@@ -180,128 +170,130 @@ export default function Cart(props){
     }
 
     return(
-        <div className={style}>
-            <div id="problem" className="w-full grid grid-rows-[auto_1fr] min-h-0">
-                <div className="w-full h-[60px] theme2 grid grid-cols-[1fr_auto_1fr] place-items-center px-4">
-                    <div></div>
-                    <h1 className="text-2xl font-bold mb-1 min-w-0">Mi Compra</h1>
-                    <button className="grid cursor-pointer" onClick={() => setActive(!active)}>X Cerrar</button>
-                </div>
-                <div className="w-full theme1 grid grid-rows-[auto_minmax(0,1fr)_auto] gap-0 min-h-0">
-                    <div className="w-full text-lg pl-14 min-[700px]:text-xl font-bold px-4 py-3 min-[700px]:py-4 border-b-2 shrink-0">{totalItems} productos dentro del carrito</div>
-                    <div className="min-h-0 overflow-hidden">
-                        <CartPages items={cart} PerPage={4}/>
+        <div className={style} onClick={() => setActive(!active)}>
+            <div className="fixed right-0 top-0 grid grid-flow-row grid-flow-rows-[auto_1fr_auto] h-screen theme2 z-50 w-[350px] min-[700px]:w-[700px]">
+                <div id="problem" className="w-full grid grid-rows-[auto_1fr] min-h-0">
+                    <div className="w-full h-[60px] theme2 grid grid-cols-[1fr_auto_1fr] place-items-center px-4">
+                        <div></div>
+                        <h1 className="text-2xl font-bold mb-1 min-w-0">Mi Compra</h1>
+                        <button className="grid cursor-pointer" onClick={() => setActive(!active)}>X Cerrar</button>
                     </div>
-                    <div className="theme5">
-                        <div className="grid grid-rows-[auto_auto_1fr_auto] place-self-center place-content-center place-items-center py-4 w-full box-border">    
-                            <div className="grid grid-flow-row min-[700px]:grid-flow-col place-content-center place-items-center">
-                                <button onClick={() => {setEnvio(false)}}><div className={envioB1}>Retiro por local</div></button>
-                                <button onClick={() => {setEnvio(true)}}> <div className={envioB2}>Envio a domicilio</div></button>
-                            </div>
-                            {
-                                envio === false ? (
-                                    <div className="w-full">
-                                        <div className="theme3 grid grid-flow-row min-[700px]:grid-flow-col place-content-center rounded-md w-full h-[55px] min-[700px]:h-[45px] gap-0 min-[700px]:gap-2 my-1 text-lg font-bold"> <div>Retirar en Av. Gral. Paz 7826, </div><div>Santa Fe</div> </div>
-                                        <div className="grid grid-flow-row place-content-center min-[700px]:grid-cols-3 gap-2 min-[700px]:gap-5 pt-2">
-                                            <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={nombreSol} onChange={(e) => setNombreSol(e.target.value)} placeholder="Ingrese su Nombre..."/></div>
-                                            <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={telefonoSol} onChange={(e) => setTelefonoSol(e.target.value)} placeholder="Ingrese su Telefono..."/></div>
-                                            <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={emailSol} onChange={(e) => setEmailSol(e.target.value)} placeholder="Ingrese su Email..."/></div>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="w-full">
-                                        <select className="theme3 grid place-content-center rounded-md w-full h-[45px] pl-2 my-1 text-lg font-bold cursor-pointer" value={otraLoc} onChange={(e) => setOtraLoc(e.target.value)}>
-                                            <option value={""} disabled className="cursor-pointer">Seleccione su localidad</option>
-                                            <option value={"Ciudad de Santa Fe"} className="cursor-pointer">Ciudad de Santa Fe</option>
-                                            <option value={"Otra"} className="cursor-pointer">Otra localidad</option>
-                                        </select>
-                                    </div>
-                                )
-                            }
-                            {
-                                otraLoc === "Otra" ? (
-                                    <div className={displayEnvio}>
-                                        <div className="grid grid-flow-row place-content-center rounded-md w-full text-lg font-bold">
-                                            <input className="theme5 grid hoverborder rounded-md pl-2 w-full h-[45px] border-b-[2px] border-[var(--color1)]" placeholder="Ingrese su localidad..." value={localidad} onChange={(e) => setLocalidad(e.target.value)} />
-                                            <div className="grid grid-flow-row min-[700px]:grid-cols-3 gap-2 min-[700px]:gap-5 pt-2">
+                    <div className="w-full theme1 grid grid-rows-[auto_minmax(0,1fr)_auto] gap-0 min-h-0">
+                        <div className="w-full text-lg pl-14 min-[700px]:text-xl font-bold px-4 py-3 min-[700px]:py-4 border-b-2 shrink-0">{totalItems} productos dentro del carrito</div>
+                        <div className="min-h-0 overflow-hidden">
+                            <CartPages items={cart} PerPage={4}/>
+                        </div>
+                        <div className="theme5">
+                            <div className="grid grid-rows-[auto_auto_1fr_auto] place-self-center place-content-center place-items-center py-4 w-full box-border">    
+                                <div className="grid grid-flow-row min-[700px]:grid-flow-col place-content-center place-items-center">
+                                    <button onClick={() => {setEnvio(false)}}><div className={envioB1}>Retiro por local</div></button>
+                                    <button onClick={() => {setEnvio(true)}}> <div className={envioB2}>Envio a domicilio</div></button>
+                                </div>
+                                {
+                                    envio === false ? (
+                                        <div className="w-full">
+                                            <div className="theme3 grid grid-flow-row min-[700px]:grid-flow-col place-content-center rounded-md w-full h-[55px] min-[700px]:h-[45px] gap-0 min-[700px]:gap-2 my-1 text-lg font-bold"> <div>Retirar en Av. Gral. Paz 7826, </div><div>Santa Fe</div> </div>
+                                            <div className="grid grid-flow-row place-content-center min-[700px]:grid-cols-3 gap-2 min-[700px]:gap-5 pt-2">
                                                 <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={nombreSol} onChange={(e) => setNombreSol(e.target.value)} placeholder="Ingrese su Nombre..."/></div>
                                                 <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={telefonoSol} onChange={(e) => setTelefonoSol(e.target.value)} placeholder="Ingrese su Telefono..."/></div>
                                                 <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={emailSol} onChange={(e) => setEmailSol(e.target.value)} placeholder="Ingrese su Email..."/></div>
                                             </div>
                                         </div>
-                                    </div>
-
-                                ) : (
-                                    <div className={displayEnvio}>
-                                        <div className="grid grid-flow-row min-[700px]:grid-cols-3 gap-2 min-[700px]:gap-5 pt-2 w-full">
-                                            <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={nombreSol} onChange={(e) => setNombreSol(e.target.value)} placeholder="Ingrese su Nombre..."/></div>
-                                            <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={telefonoSol} onChange={(e) => setTelefonoSol(e.target.value)} placeholder="Ingrese su Telefono..."/></div>
-                                            <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={emailSol} onChange={(e) => setEmailSol(e.target.value)} placeholder="Ingrese su Email..."/></div>
-                                        </div>                      
-                                    </div>
-                                )
-                            }
-                            <div className="grid grid-flow-row w-full place-items-center gap-2 pt-2 min-[700px]:pt-4">
-                                    {
-                                        otraLoc === "Otra" ? (
-                                            <div className="grid grid-flow-row w-full">
-                                                <div className="grid grid-cols-[1fr_auto] w-full">
-                                                    <h1 className="text-2xl font-bold justify-self-start">TOTAL:</h1> <h1 className="text-2xl font-bold justify-self-end">{total}$</h1>
+                                    ) : (
+                                        <div className="w-full">
+                                            <select className="theme3 grid place-content-center rounded-md w-full h-[45px] pl-2 my-1 text-lg font-bold cursor-pointer" value={otraLoc} onChange={(e) => setOtraLoc(e.target.value)}>
+                                                <option value={""} disabled className="cursor-pointer">Seleccione su localidad</option>
+                                                <option value={"Ciudad de Santa Fe"} className="cursor-pointer">Ciudad de Santa Fe</option>
+                                                <option value={"Otra"} className="cursor-pointer">Otra localidad</option>
+                                            </select>
+                                        </div>
+                                    )
+                                }
+                                {
+                                    otraLoc === "Otra" ? (
+                                        <div className={displayEnvio}>
+                                            <div className="grid grid-flow-row place-content-center rounded-md w-full text-lg font-bold">
+                                                <input className="theme5 grid hoverborder rounded-md pl-2 w-full h-[45px] border-b-[2px] border-[var(--color1)]" placeholder="Ingrese su localidad..." value={localidad} onChange={(e) => setLocalidad(e.target.value)} />
+                                                <div className="grid grid-flow-row min-[700px]:grid-cols-3 gap-2 min-[700px]:gap-5 pt-2">
+                                                    <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={nombreSol} onChange={(e) => setNombreSol(e.target.value)} placeholder="Ingrese su Nombre..."/></div>
+                                                    <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={telefonoSol} onChange={(e) => setTelefonoSol(e.target.value)} placeholder="Ingrese su Telefono..."/></div>
+                                                    <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={emailSol} onChange={(e) => setEmailSol(e.target.value)} placeholder="Ingrese su Email..."/></div>
                                                 </div>
-                                                <button className="theme3 BiggerMini textcolor rounded-md w-full h-[45px] my-1 text-lg font-bold" onClick={() => handleSolicitud()}>Solicitar Compra</button>
                                             </div>
-                                        ) : (           
-                                            <div className="grid grid-flow-row w-full gap-2">
-                                                {/*
-                                                <div className={displayEnvio}>
-                                                    <div className="grid grid-cols-[1fr_auto] w-full items-center pt-2">
-                                                        <h1 className="text-base font-semibold justify-self-start">Envío:</h1> <h1 className="text-base font-semibold justify-self-end">{costo}$</h1>
-                                                    </div>
-                                                </div>
-                                                */}
+                                        </div>
 
-                                                <div className="grid grid-cols-[1fr_auto] w-full items-center">
-                                                    <h1 className="text-2xl font-bold justify-self-start">TOTAL:</h1> <h1 className="text-2xl font-bold justify-self-end">{total}$</h1>
-                                                </div>
-                                                <div className="grid">
+                                    ) : (
+                                        <div className={displayEnvio}>
+                                            <div className="grid grid-flow-row min-[700px]:grid-cols-3 gap-2 min-[700px]:gap-5 pt-2 w-full">
+                                                <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={nombreSol} onChange={(e) => setNombreSol(e.target.value)} placeholder="Ingrese su Nombre..."/></div>
+                                                <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={telefonoSol} onChange={(e) => setTelefonoSol(e.target.value)} placeholder="Ingrese su Telefono..."/></div>
+                                                <div><input className="theme5 grid hoverborder w-[250px] min-[700px]:w-[185px] h-[45px] pl-2 rounded-md text-base border-b-[2px] border-[var(--color1)]" value={emailSol} onChange={(e) => setEmailSol(e.target.value)} placeholder="Ingrese su Email..."/></div>
+                                            </div>                      
+                                        </div>
+                                    )
+                                }
+                                <div className="grid grid-flow-row w-full place-items-center gap-2 pt-2 min-[700px]:pt-4">
+                                        {
+                                            otraLoc === "Otra" ? (
+                                                <div className="grid grid-flow-row w-full">
+                                                    <div className="grid grid-cols-[1fr_auto] w-full">
+                                                        <h1 className="text-2xl font-bold justify-self-start">TOTAL:</h1> <h1 className="text-2xl font-bold justify-self-end">{total}$</h1>
+                                                    </div>
                                                     <button className="theme3 BiggerMini textcolor rounded-md w-full h-[45px] my-1 text-lg font-bold" onClick={() => handleSolicitud()}>Solicitar Compra</button>
                                                 </div>
-                                                
+                                            ) : (           
+                                                <div className="grid grid-flow-row w-full gap-2">
+                                                    {/*
+                                                    <div className={displayEnvio}>
+                                                        <div className="grid grid-cols-[1fr_auto] w-full items-center pt-2">
+                                                            <h1 className="text-base font-semibold justify-self-start">Envío:</h1> <h1 className="text-base font-semibold justify-self-end">{costo}$</h1>
+                                                        </div>
+                                                    </div>
+                                                    */}
 
-                                            </div>
-                                        )
-                                    }
+                                                    <div className="grid grid-cols-[1fr_auto] w-full items-center">
+                                                        <h1 className="text-2xl font-bold justify-self-start">TOTAL:</h1> <h1 className="text-2xl font-bold justify-self-end">{total}$</h1>
+                                                    </div>
+                                                    <div className="grid">
+                                                        <button className="theme3 BiggerMini textcolor rounded-md w-full h-[45px] my-1 text-lg font-bold" onClick={() => handleSolicitud()}>Solicitar Compra</button>
+                                                    </div>
+                                                    
+
+                                                </div>
+                                            )
+                                        }
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            {solicitudEnviada && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-                <div className="theme2 rounded-lg p-8 max-w-md mx-4 text-center">
-                <div className="text-6xl mb-4">✅</div>
-                <h2 className="text-2xl font-bold mb-4">¡Solicitud Procesada!</h2>
-                <p className="text-lg mb-2">
-                    Hemos recibido tu solicitud de compra correctamente.
-                </p>
-                <p className="text-lg mb-4">
-                    Te hemos enviado un email de confirmación y nos pondremos en contacto contigo pronto.
-                </p>
-                <p className="text-sm">
-                    Serás redirigido a la página de inicio en{" "}
-                    <span className="font-bold text-lg">{tiempoRestante}</span>{" "}
-                    segundos...
-                </p>
-                <button
-                    className="theme1 mt-4 px-6 py-2 rounded-md font-bold"
-                    onClick={() => window.location.href = "/"}
-                >
-                    Ir al inicio ahora
-                </button>
+                
+                {solicitudEnviada && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
+                    <div className="theme2 rounded-lg p-8 max-w-md mx-4 text-center">
+                    <div className="text-6xl mb-4">✅</div>
+                    <h2 className="text-2xl font-bold mb-4">¡Solicitud Procesada!</h2>
+                    <p className="text-lg mb-2">
+                        Hemos recibido tu solicitud de compra correctamente.
+                    </p>
+                    <p className="text-lg mb-4">
+                        Te hemos enviado un email de confirmación y nos pondremos en contacto contigo pronto.
+                    </p>
+                    <p className="text-sm">
+                        Serás redirigido a la página de inicio en{" "}
+                        <span className="font-bold text-lg">{tiempoRestante}</span>{" "}
+                        segundos...
+                    </p>
+                    <button
+                        className="theme1 mt-4 px-6 py-2 rounded-md font-bold"
+                        onClick={() => window.location.href = "/"}
+                    >
+                        Ir al inicio ahora
+                    </button>
+                    </div>
                 </div>
+                )}
             </div>
-            )}
         </div>
     );
 }
