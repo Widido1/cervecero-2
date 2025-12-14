@@ -28,8 +28,8 @@ export default function SingleCard(props) {
 
     return(
         <div>
-            <div className="theme1 grid place-content-start place-items-start py-4 
-            w-[750px] min-[900px]:w-[900px] min-[1200px]:w-[1200px]">
+            <div className="theme1 grid place-content-start place-items-start py-4 px-4
+            min-[700px]:w-[650px] min-[900px]:w-[900px] min-[1200px]:w-[1200px]">
                 <div className="grid grid-flow-row min-[900px]:grid-flow-col gap-4 min-[900px]:gap-8">
                     <div>
                         <Image 
@@ -74,7 +74,7 @@ export default function SingleCard(props) {
                                 <div>
                                     <h1 className="font-bold text-4xl">{"Total: $ " + (props.price * quantity)}</h1>
                                 </div>
-                                <button onClick={() => addMultipleCart(cartProduct, quantity)} className="grid place-self-center theme3 textcolor cursor-pointer font-bold w-full rounded-md p-1 min-[900px]:p-2 m-2 text-md min-[900px]:text-lg">
+                                <button onClick={() => addMultipleCart(cartProduct, quantity)} className="grid place-self-center theme3 textcolor cursor-pointer font-bold w-full rounded-md p-2 m-2 text-base min-[900px]:text-lg">
                                     Comprar
                                 </button>
                             </div>
