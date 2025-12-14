@@ -11,16 +11,15 @@ export default function SinglePage(props) {
     const items = props.items;
     const [displayCart, setDisplayCart] = useState(false); //estado del carrito, si esta abierto o cerrado
     return (
-        <div className="min-w-[900px]">
+        <div className="min-w-[400px]">
             <Navbar display={displayCart} setDisplay={setDisplayCart}/>
             <div className="grid h-[120px]"></div> {/* Espacio para el navbar */}
             <div className="grid place-content-center place-items-center gap-8 py-8">
                 <div className="grid">
                     <SingleCard id={product.id} name={product.name} img={product.imageUrl} des={product.description} price={product.price} type={product.type}/>
                 </div>
-                <div className="grid grid-flow-row place-content-center place-items-center min-[900px]:place-content-start min-[900px]:place-items-start gap-4">
-                    <div className="grid text-2xl font-bold">Productos Similares:</div>
-                    <div><Slider items={items}/></div>
+                <div className="grid place-content-center place-items-center">
+                    <div><Slider items={items} name={"Productos\nSimilares"}/></div>
                 </div>
             </div>
             <Cart className active={displayCart} setActive={setDisplayCart}/>

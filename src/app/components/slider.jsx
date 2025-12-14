@@ -37,14 +37,14 @@ export default function Slider(props){
 
     useEffect(() => {
         if(mI === 0){
-            setArrowL("invisible theme6 Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px]");
+            setArrowL("invisible theme5 font-bold Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px]");
         } else {
-            setArrowL("theme6 Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px] opacity-90");
+            setArrowL("theme5 font-bold Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px] opacity-90");
         }
         if(mI >= cArray.length - itemsToShow){
-            setArrowR("opacity-0 pointer-events-none theme6 Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px]");
+            setArrowR("opacity-0 pointer-events-none theme5 font-bold Bigger rounded-full  text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px]");
         } else {
-            setArrowR("theme6 Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px] opacity-90");
+            setArrowR("theme5 font-bold Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px] opacity-90");
         }
     }, [mI, itemsToShow, cArray.length]);
 
@@ -83,9 +83,9 @@ export default function Slider(props){
     return(
         <div>
             <div className="grid grid-flow-col place-content-center place-items-center">
-                <div className="block custom-500:hidden"><button onClick={PrevF} className="theme6 Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px] opacity-90" >{"<"}</button></div>
+                <div className="block custom-500:hidden"><button onClick={PrevF} className="theme5 Bigger rounded-full font-bold text-2xl ml-4 min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px]" >{"<"}</button></div>
                 <div className="text-center text-3xl font-extrabold p-4">{name}</div>
-                <div className="block custom-500:hidden"><button onClick={NextF} className="theme6 Bigger rounded-full text-2xl min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px] opacity-90">{">"}</button></div>
+                <div className="block custom-500:hidden"><button onClick={NextF} className="theme5 Bigger rounded-full font-bold text-2xl mr-4 min-[1100px]:text-4xl min-[1300px]:text-5xl w-[50px] h-[50px] min-[1100px]:w-[75px] min-[1100px]:h-[75px] min-[1300px]:w-[100px] min-[1300px]:h-[100px]">{">"}</button></div>
             </div>
             <div className="Slider mx-auto gap-[20px] w-[350px] min-[550px]:w-[420px] min-[850px]:w-[650px] min-[1100px]:w-[900px] min-[1300px]:w-[1200px] px-4 pb-2">         
                 <div className="grid grid-flow-col place-self-center place-content-center place-items-center gap-4">
