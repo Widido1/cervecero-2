@@ -21,9 +21,7 @@ export default function SearchResults(props){
     const [cantidadR, setCantidadR] = useState("default"); //cantidad de resultados
     //Filtros de busqueda
     const [orden, setOrden] = useState("Relevancia"); //orden de los productos
-    const [precioCerveza, setPrecioCerveza] = useState("default"); //precio de los productos
     const [cervezaTipo, setCervezaTipo] = useState("default"); //Tipo de cerveza
-    const [cervezaCapacidad, setCervezaCapacidad] = useState("default"); //capacidad de la cerveza
     const [ingredienteTipo, setIngredienteTipo] = useState("default"); //tipo de ingrediente
     const [tipoElemento, setTipoElemento] = useState("default"); //tipo de elemento
     const [producto, setProducto] = useState("default"); //libros y revistas
