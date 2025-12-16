@@ -150,6 +150,11 @@ export default function Cart(props){
         Nos pondremos en contacto contigo pronto para confirmar los detalles de tu pedido.
         Gracias por elegirnos para tu compra.
 
+        * Los precios son indicativos sujetos a variaciones sin previa notificación.
+        * Los precios no incluyen el envío de mercaderia.
+        * La venta está sujeta a disponibilidad de stock.
+        * El envío del formulario "Solicitar Compra" no implica la compraventa del producto.
+
         Si tienes alguna pregunta, no dudes en contactarnos: ${EMAIL}
         ¡Gracias por elegir la Boutique del Cervecero!
         `;
