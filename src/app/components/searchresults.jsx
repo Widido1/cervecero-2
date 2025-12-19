@@ -10,6 +10,7 @@ import { useCart } from "../hooks/usecart";
 import Pie from "./pie";
 import logo from "@/app/images/logo.png";
 import Image from "next/image";
+import WSP from "./wsp";
 
 export default function SearchResults(props){
     const allProducts = props.products; //arreglo que contiene todos los productos, de acá se sacan los resultados
@@ -134,9 +135,9 @@ export default function SearchResults(props){
  //cuando se cambia el valor de results, se ejecuta el useEffect
 
     return(
-        <div>
-            <div className="w-full grid theme2 fixed top-0 z-25 min-w-[600px] overflow-hidden">
-                <div className="grid grid-flow-col min-[1000px]:place-content-center text-center place-self-center place-items-start min-[1000px]:place-items-center h-[80px] px-1 min-[500px]:px-2 font-bold text-4xl gap-4 min-[500px]:gap-8 pt-4 min-[1000px]:pt-1">
+        <div className="min-w-[410px]">
+            <div className="grid w-full theme2 fixed top-0 z-50 Merry">
+                <div className="grid grid-flow-col Merry min-[1000px]:place-content-center text-center place-self-center place-items-start min-[1000px]:place-items-center h-[80px] px-1 min-[500px]:px-2 font-bold text-4xl gap-4 min-[500px]:gap-8 pt-4 min-[1000px]:pt-1">
                     {/* Otro Navbar, este necesita un buscador diferente <Link href="/talleres/"><h1 className="TextShine Bigger">Talleres</h1></Link> para que no se recarge la pagina al buscar en la misma */}
                     <div>
                         <Link href="/" className="cursor-pointer">
@@ -158,13 +159,12 @@ export default function SearchResults(props){
                         <CartButton setDisplay={setDisplayCart} display={displayCart} cart={cart}/>
                     </div>           
                 </div>
-                <div className="grid grid-flow-col theme4 w-full gap-8 min-[550px]:gap-8 place-self-start min-[550px]:place-self-center place-content-start min-[550px]:place-content-center place-items-start text-center text-xl">
-                    <div className="grid grid-flow-col w-[340px] min-[550px]:w-[500px] gap-8 place-self-start min-[550px]:place-self-center place-content-center place-items-start text-center text-lg min-[550px]:text-xl py-2 pl-6">
-                        <Link href="/"><h1 className="TextShine Bigger Merry">Inicio</h1></Link>
-                        <Link href="/search/empty"><h1 className="TextShine Bigger Merry">Productos</h1></Link>
-                        <Link href="/about"><h1 className="TextShine Bigger Merry">Sobre Nosotros</h1></Link>
-                    </div>
+                <div className="grid grid-flow-col theme4 w-full gap-8 place-self-center place-content-center place-items-center text-center text-lg min-[550px]:text-xl p-2">
+                    <Link href="/"><h1 className="TextShine Bigger Merry">Inicio</h1></Link>
+                    <Link href="/search/empty"><h1 className="TextShine Bigger Merry">Productos</h1></Link>
+                    <Link href="/about"><h1 className="TextShine Bigger Merry">Sobre Nosotros</h1></Link>
                 </div>
+                <WSP/>
 
 
             </div>

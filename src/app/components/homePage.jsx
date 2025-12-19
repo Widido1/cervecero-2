@@ -8,6 +8,7 @@ import CirculoCategoria from "./circuloCategoria";
 import SliderPrioridad from "./sliderPrioridad";
 import Pie from "./pie";
 import Banner from "./banner";
+import WSP from "./wsp";
 
 export default function HomePage(props) {
   const items = props.items; //aqui van los items que se pasan al slider, por ahora un array vacio
@@ -19,9 +20,10 @@ export default function HomePage(props) {
 
   return (
     <div className="min-w-[400px]">
-      <Navbar display={displayCart} setDisplay={setDisplayCart}/>
+      <Navbar display={displayCart} setDisplay={setDisplayCart}/>     
       <div className="grid h-[120px]"></div> {/* Espacio para el navbar */}
       <Banner/>
+      <WSP />
       <div className="w-[400px] min-[550px]:w-[550px] min-[650px]:w-[650px] min-[750px]:w-[750px] min-[900px]:w-[900px] min-[1100px]:w-[1100px] min-[1400px]:w-[1400px] mx-auto">
         <div className="text-center text-3xl font-extrabold p-4">Categorías</div>
         <div className="grid grid-flow-row min-[650px]:grid-flow-col place-self-center place-content-center place-items-center min-[650px]:gap-6 min-[920px]:gap-12 p-4">
