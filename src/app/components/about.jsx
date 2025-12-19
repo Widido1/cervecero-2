@@ -8,6 +8,7 @@ import Cart from "./cart";
 import imgvision from "@/app/images/imgvision.webp";
 import imgvalores1 from "@/app/images/imgvalores1.webp";
 import imgvalores2 from "@/app/images/imgvalores2.webp";
+import WSP from "./wsp";
 
 
 export default function About(props) {
@@ -17,6 +18,7 @@ export default function About(props) {
     <div className="min-w-[400px]">
         <Navbar display={displayCart} setDisplay={setDisplayCart}/>
         <div className="grid h-[100px]"></div> {/* Espacio para el navbar */}
+        <WSP/>
         <div className="theme3b grid grid-flow-row place-content-center place-items-center text-center py-14 min-[750px]:py-20">
             <div className="Merry text-xl min-[960px]:text-2xl min-[1200px]:text-3xl">Nuestra misión</div>
             <div className="Merry text-3xl min-[750px]:text-4xl min-[960px]:text-5xl min-[1200px]:text-6xl min-[1400px]:text-7xl font-semibold px-4">Fomentar la cultura cervecera artesanal<br/> con insumos, formación y<br/> asesoramiento de confianza. </div>
