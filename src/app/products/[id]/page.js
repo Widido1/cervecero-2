@@ -28,7 +28,8 @@ export default async function ProductPage({ params }){
 
   const items = await prisma.product.findMany({
     where: {
-      type: product.type
+      type: product.type,
+      stock: { gt: 0 }
     },
     orderBy: { 
       priority: 'desc' 
@@ -42,6 +43,7 @@ export default async function ProductPage({ params }){
       const randomItem = await prisma.product.findFirst({
         where: {
           productType: product.productType,
+          stock: { gt: 0 },
           NOT: { id: product.id }
         }
       });
