@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import CartProvider from "./context/cart-context";
 import ToastCart from "./components/toastCart";
+import { Analytics } from "@vercel/analytics/react";
 
 
 const geistSans = Geist({
@@ -34,6 +35,7 @@ export default function RootLayout({ children }) {
         <CartProvider>
           {children}
           <ToastCart />
+          <Analytics />
         </CartProvider>
       </body>
     </html>
