@@ -21,8 +21,6 @@ export const metadata = {
   description: "Tu tienda online de insumos, equipos y accesorios para elaborar cerveza artesanal.",
   icons: {
     icon: '/favicon.ico',
-    // Agrega otros iconos si los tienes
-    // apple: '/apple-touch-icon.png',
   },
 };
 
