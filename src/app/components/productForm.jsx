@@ -103,14 +103,14 @@ export default function ProductForm({ product }) {
             return;
         }
         
-        // Si es "no-imagen", no validamos como URL
+        // Si es "no-imagen", no validamos
         if (url.toLowerCase().trim() === "no-imagen") {
             setImageError(false);
             setIsImageLoading(false);
             return;
         }
         
-        // Solo validar como URL si no es "no-imagen"
+        // Validar que sea una URL válida
         try {
             new URL(url);
         } catch {
@@ -119,6 +119,14 @@ export default function ProductForm({ product }) {
             return;
         }
         
+        // Validar que la URL sea de Cloudinary
+        if (!url.startsWith("https://res.cloudinary.com/")) {
+            setImageError(true);
+            setIsImageLoading(false);
+            return;
+        }
+        
+        // Si pasa las validaciones, intentar cargar la imagen
         setIsImageLoading(true);
         imageTimeoutRef.current = setTimeout(() => {
             const img = new Image();
@@ -151,7 +159,7 @@ export default function ProductForm({ product }) {
         
         if (imageError && imageUrl.trim() && imageUrl.toLowerCase().trim() !== "no-imagen") {
             const confirmSubmit = window.confirm(
-                "La URL de la imagen parece no ser válida. ¿Desea continuar de todos modos?"
+                "La URL de la imagen no es válida (debe ser de Cloudinary o la imagen no pudo cargarse). ¿Desea continuar de todos modos?"
             );
             if (!confirmSubmit) return;
         }
@@ -334,7 +342,7 @@ export default function ProductForm({ product }) {
                                             </div>
                                             <p className="text-red-600 font-medium">Error al cargar la imagen</p>
                                             <p className="text-gray-500 text-sm text-center mt-1">
-                                                La URL no apunta a una imagen válida
+                                                La URL no es de Cloudinary o no es una imagen válida
                                             </p>
                                         </div>
                                     )}
@@ -389,7 +397,7 @@ export default function ProductForm({ product }) {
                                                 imageUrl.toLowerCase().trim() === "no-imagen" ? 'border-blue-500 bg-blue-50' :
                                                 'border-gray-300'
                                             }`}
-                                            placeholder="https://ejemplo.com/imagen.jpg o 'no-imagen'" 
+                                            placeholder="https://res.cloudinary.com/... o 'no-imagen'" 
                                             required 
                                         />
                                         {/* Indicador de estado */}
@@ -418,7 +426,7 @@ export default function ProductForm({ product }) {
                                         <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
-                                        Ingrese URL de imagen o "no-imagen" para usar imagen por defecto
+                                        Solo se permiten imágenes alojadas en Cloudinary. Use "no-imagen" para imagen por defecto.
                                     </div>
                                 </div>
                             </div>
