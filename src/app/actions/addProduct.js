@@ -30,5 +30,5 @@ export default async function addProduct(formData){
             type: type,
         }
     });
-    revalidatePath("/cervecero/page");
+    revalidatePath('/', 'layout');
 }

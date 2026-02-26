@@ -9,5 +9,6 @@ export default async function DeleteProduct(id){
             id: id,
         }
     });
+    revalidatePath('/', 'layout')
     redirect("/cervecero")
 }

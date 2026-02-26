@@ -35,5 +35,5 @@ export default async function updateProduct(formData){
             type: type,
         }
     })
-    revalidatePath("/cervecero/page");
+    revalidatePath('/', 'layout')
 }

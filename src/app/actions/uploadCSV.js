@@ -21,7 +21,7 @@ export async function actualizarPrecios(productos) {
         actualizados++;
       }
     }
-    
+    revalidatePath('/', 'layout')
     return {
       success: true,
       message: `Actualizados ${actualizados} productos`,
@@ -35,4 +35,5 @@ export async function actualizarPrecios(productos) {
       error: error.message
     };
   }
+
 }

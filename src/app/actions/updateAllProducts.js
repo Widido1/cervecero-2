@@ -22,6 +22,7 @@ export async function updateAllProducts(changedProducts) {
     );
 
     await prisma.$transaction(updates);
+    revalidatePath('/', 'layout')
     
     return { success: true };
     
