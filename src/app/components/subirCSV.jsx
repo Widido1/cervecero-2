@@ -20,9 +20,13 @@ export default function SubirCSV() {
       const texto = await file.text();
       const lineas = texto.split('\n').filter(line => line.trim());
       
+      // --- Detectar separador: si la primera línea tiene ';' usamos ese, si no, usamos ',' ---
+      const separador = lineas[0]?.includes(';') ? ';' : ',';
+      // ------------------------------------------------------------------------------------
+      
       const productos = lineas
         .map(linea => {
-          const [codigo, precio] = linea.split(',');
+          const [codigo, precio] = linea.split(separador);
           return { codigo, precio: Number(precio) };
         })
         .filter(p => p.codigo && !isNaN(p.precio));

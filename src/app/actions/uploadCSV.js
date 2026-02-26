@@ -3,7 +3,6 @@
 import { revalidatePath } from "next/cache";
 import { prisma } from "../libs/prisma";
 
-
 export async function actualizarPrecios(productos) {
   try {
     let actualizados = 0;
@@ -36,5 +35,4 @@ export async function actualizarPrecios(productos) {
       error: error.message
     };
   }
-
 }
