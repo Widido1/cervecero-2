@@ -61,7 +61,9 @@ export default function SearchResults(props){
         const findW = new RegExp(purged); //construlle un RegEx usando la palabra de la busqueda purgada para evitar errores
         const results = allProducts.reduce((res, x) => { //construye un arreglo filtrando los productos que tienen un nombre que coincide con el regEx
             if(findW.test(x.name.toLowerCase())){ //testea con los nombres en minuscula, se comparan minusculas con minusculas, y eso deja de ser un problema
+                if(x.stock > 0){
                 res.push(x)
+                }
             } 
             return res
         }, [],);
