@@ -66,7 +66,7 @@ export default function Pie(props) {
         <div className="grid place-content-center w-full theme4 p-4 text-center gap-2">
           <div>© 2025 Luengo Cervezas S.A.S. Todos los derechos reservados</div>
           <div>
-            Desarrollo: Morfeo (Santiago Gonzalez) y Ignacio D'Amario
+            Desarrollo: Santiago Gonzalez (Morfeo) y Ignacio D'Amario
           </div>
         </div>
     </div>
