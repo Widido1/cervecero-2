@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Pie(props) {
   return (
-    <div className="grid theme2 w-full min-[550px]:h-[300px] mt-4 overflow-hidden">
+    <div className="grid theme2 w-full mt-4 overflow-hidden">
         <div className="grid grid-flow-row min-[550px]:grid-flow-col place-content-center grid-rows-2 min-[950px]:grid-cols-4 min-[950px]:grid-rows-1 place-self-center place-items-start gap-4 min-[950px]:gap-8 pt-12 pb-8 w-[85%] min-[1300px]:w-[70%]">
             <div className="grid grid-flow-col min-[950px]:grid-flow-row place-self-start place-content-center place-items-start gap-4">
                 <div>
@@ -63,8 +63,11 @@ export default function Pie(props) {
               <div className="text-xs grid grid-flow-row gap-2">Preguntas frecuentes</div>
             </div>
         </div>
-        <div className="grid place-content-center w-full theme4 p-4 text-center">
+        <div className="grid place-content-center w-full theme4 p-4 text-center gap-2">
           <div>© 2025 Luengo Cervezas S.A.S. Todos los derechos reservados</div>
+          <div>
+            Desarrollo: Morfeo (Santiago Gonzalez) y Ignacio D'Amario
+          </div>
         </div>
     </div>
   )    
