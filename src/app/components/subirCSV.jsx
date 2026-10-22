@@ -4,6 +4,13 @@ import { useRef, useState } from 'react';
 import { actualizarPrecios } from "../actions/uploadCSV";
 import { redirect } from 'next/navigation';
 
+// "14.841,00" → 14841
+const limpiarPrecio = (valor) => {
+  if (typeof valor !== 'string') return NaN;
+  const soloEntero = valor.trim().split(',')[0].replace(/\./g, '');
+  return Number(soloEntero);
+};
+
 export default function SubirCSV() {
   const fileInputRef = useRef(null);
   const [procesando, setProcesando] = useState(false);
@@ -12,29 +19,27 @@ export default function SubirCSV() {
   const subirArchivo = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    
+
     setProcesando(true);
     setEstado('📖 Leyendo archivo...');
-    
+
     try {
       const texto = await file.text();
       const lineas = texto.split('\n').filter(line => line.trim());
-      
-      // --- Detectar separador: si la primera línea tiene ';' usamos ese, si no, usamos ',' ---
+
       const separador = lineas[0]?.includes(';') ? ';' : ',';
-      // ------------------------------------------------------------------------------------
-      
+
       const productos = lineas
         .map(linea => {
           const [codigo, precio] = linea.split(separador);
-          return { codigo, precio: Number(precio) };
+          return { codigo: codigo?.trim(), precio: limpiarPrecio(precio) };
         })
         .filter(p => p.codigo && !isNaN(p.precio));
-      
+
       setEstado(`⚙️ Procesando ${productos.length} productos...`);
-      
+
       const result = await actualizarPrecios(productos);
-      
+
       if (result.success) {
         setEstado(`✅ ${productos.length} productos procesados`);
         setTimeout(() => {
@@ -49,7 +54,7 @@ export default function SubirCSV() {
           setEstado('');
         }, 5000);
       }
-      
+
     } catch (error) {
       setEstado(`❌ ${error.message}`);
       setTimeout(() => {
@@ -79,14 +84,14 @@ export default function SubirCSV() {
         style={{ display: 'none' }}
         disabled={procesando}
       />
-      
-      <button 
+
+      <button
         onClick={handleButtonClick}
         className={`
           py-2 px-4 rounded-md font-bold my-2 
           flex items-center justify-center gap-2 min-w-[200px]
           transition-all duration-300
-          ${!procesando ? 'theme2' : 
+          ${!procesando ? 'theme2' :
             estado.includes('✅') ? 'bg-green-600 text-white' :
             estado.includes('❌') ? 'bg-red-600 text-white' :
             'theme2'}
